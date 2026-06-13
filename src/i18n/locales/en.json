@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "about": "About",
+    "methodology": "Methodology",
+    "services": "Services",
+    "faq": "FAQ",
+    "blog": "Articles",
+    "contact": "Get in touch"
+  },
+  "hero": {
+    "title": "Recovery begins with an honest conversation",
+    "subtitle": "Addiction consulting for individuals dealing with substance dependency, co-dependency, and ACoA patterns. Evidence-based practice integrating 12-step methodology.",
+    "cta": "Start screening"
+  },
+  "about": {
+    "heading": "Valentin Maksimov",
+    "role": "Addiction Consultant · Israel",
+    "bio": "For over 10 years I have worked with people whose lives are touched by addiction — their own or someone close to them. My approach combines the structure of 12-step programs with an academic foundation: TIP 35 protocol, Nati Ronel's research, and the conceptual work of Toni A. I work in Russian, Hebrew, and English."
+  },
+  "methodology": {
+    "heading": "Methodology",
+    "items": [
+      { "title": "12-Step Integration", "desc": "Adapting program structure to individual needs without dogmatism" },
+      { "title": "ACoA Profile Work", "desc": "Processing childhood trauma, destructive patterns, and co-dependent behaviors" },
+      { "title": "Evidence-Based Practice", "desc": "TIP 35 protocol, Nati Ronel's research — rigorous professional standards" },
+      { "title": "Full Confidentiality", "desc": "Complete privacy. Work in a protected, non-judgmental space" }
+    ]
+  },
+  "services": {
+    "heading": "Services",
+    "items": [
+      { "title": "Individual consultation", "duration": "60 min", "desc": "Initial meeting or working session. Assessment of the situation, setting goals." },
+      { "title": "Program companionship", "duration": "Course", "desc": "Systematic work through the 12-step program with individual adaptation." },
+      { "title": "Family consulting", "duration": "60–90 min", "desc": "Working with co-dependent patterns within the family system." }
+    ]
+  },
+  "faq": {
+    "heading": "Frequently asked",
+    "items": [
+      { "q": "Where do I start if I'm not sure I have an addiction?", "a": "Start with the initial screening. It's a free questionnaire, after which I will contact you personally and answer all your questions with no obligation." },
+      { "q": "Do you work online or only in person?", "a": "I conduct sessions both via video call (Zoom) and in person in Israel." },
+      { "q": "How much does a consultation cost?", "a": "Cost is discussed individually after the initial screening. Write to me — I will answer honestly." },
+      { "q": "Do you work with families of addicted people?", "a": "Yes. Co-dependency and work with loved ones is a separate, important direction of my practice." },
+      { "q": "How is confidentiality handled?", "a": "Absolute. No records under your name are publicly accessible. Form data is stored in an encrypted database." }
+    ]
+  },
+  "blog": {
+    "heading": "Articles",
+    "readMore": "Read more",
+    "items": [
+      { "date": "March 2025", "title": "What is co-dependency and how to recognise it", "excerpt": "Co-dependency often hides behind care. We examine the key signs and ways out." },
+      { "date": "February 2025", "title": "12 Steps: myths and reality", "excerpt": "Why the program works not as a religion but as a structure. What actually happens in meetings." },
+      { "date": "January 2025", "title": "ACoA — adult children of dysfunctional families", "excerpt": "The ACoA profile: where chronic patterns come from and how to work with them in therapy." }
+    ]
+  },
+  "contact": {
+    "heading": "Book a consultation",
+    "subtitle": "The initial screening is a short questionnaire. I will contact you personally within 24 hours, with no intermediaries.",
+    "cta": "Write directly",
+    "soon": "The screening form will be available shortly."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy policy"
+  }
+}
