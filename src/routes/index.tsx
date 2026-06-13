@@ -1,29 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import "@/i18n";
+import { applyDocumentLang } from "@/i18n";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Methodology } from "@/components/sections/Methodology";
+import { Services } from "@/components/sections/Services";
+import { FAQ } from "@/components/sections/FAQ";
+import { BlogPreview } from "@/components/sections/BlogPreview";
+import { Contact } from "@/components/sections/Contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Валентин Максимов — Консультант по зависимостям | Израиль" },
+      {
+        name: "description",
+        content:
+          "Частная практика по работе с зависимостями, созависимостью и профилем ВДА. Израиль. Онлайн и очно. Русский, иврит, английский.",
+      },
+      {
+        property: "og:title",
+        content: "Валентин Максимов — Консультант по зависимостям | Израиль",
+      },
+      {
+        property: "og:description",
+        content:
+          "Интеграция 12-шаговой методологии и доказательной практики (TIP 35, Нати Ронель). Конфиденциально. Ru · He · En.",
+      },
+      { property: "og:type", content: "website" },
     ],
   }),
-  component: Index,
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    applyDocumentLang(i18n.resolvedLanguage ?? i18n.language ?? "ru");
+  }, [i18n.resolvedLanguage, i18n.language]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="bg-paper text-ink min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Methodology />
+        <Services />
+        <FAQ />
+        <BlogPreview />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
