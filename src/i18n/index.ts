@@ -24,7 +24,7 @@ if (!i18n.isInitialized) {
       supportedLngs: SUPPORTED_LANGS,
       interpolation: { escapeValue: false },
       detection: {
-        order: ["localStorage", "navigator"],
+        order: ["localStorage"],
         caches: ["localStorage"],
         lookupLocalStorage: "vm-lang",
       },
