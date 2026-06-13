@@ -40,33 +40,33 @@ export function Navbar() {
           VM
         </button>
 
-        <nav className="hidden md:flex items-center gap-8">
-          {SECTIONS.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => scrollTo(s.id)}
-              className="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-500"
-            >
-              {t(s.key)}
-            </button>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
+        <div className="flex items-center gap-6">
           <LanguageSwitcher />
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-ink p-2"
-          aria-label="Menu"
-          aria-expanded={open}
-        >
-          <span className="block w-5 h-px bg-ink mb-1.5" />
-          <span className="block w-5 h-px bg-ink mb-1.5" />
-          <span className="block w-5 h-px bg-ink" />
-        </button>
+          <nav className="hidden md:flex items-center gap-8">
+            {SECTIONS.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => scrollTo(s.id)}
+                className="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-500"
+              >
+                {t(s.key)}
+              </button>
+            ))}
+          </nav>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden text-ink p-2"
+            aria-label="Menu"
+            aria-expanded={open}
+          >
+            <span className="block w-5 h-px bg-ink mb-1.5" />
+            <span className="block w-5 h-px bg-ink mb-1.5" />
+            <span className="block w-5 h-px bg-ink" />
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -81,9 +81,6 @@ export function Navbar() {
                 {t(s.key)}
               </button>
             ))}
-            <div className="pt-4 border-t border-border">
-              <LanguageSwitcher />
-            </div>
           </nav>
         </div>
       )}
