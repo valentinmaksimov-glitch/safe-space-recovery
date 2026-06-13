@@ -10,17 +10,6 @@ export type AppLang = "ru" | "he" | "en";
 
 export const SUPPORTED_LANGS: AppLang[] = ["ru", "he", "en"];
 
-const ruHeDetector = {
-  name: "ruHeNavigator",
-  lookup() {
-    if (typeof navigator === "undefined") return undefined;
-    const lang = navigator.language || "";
-    const code = lang.slice(0, 2).toLowerCase();
-    if (code === "ru" || code === "he") return code;
-    return undefined;
-  },
-};
-
 if (!i18n.isInitialized) {
   i18n
     .use(LanguageDetector)
@@ -35,15 +24,13 @@ if (!i18n.isInitialized) {
       supportedLngs: SUPPORTED_LANGS,
       interpolation: { escapeValue: false },
       detection: {
-        order: ["localStorage", "ruHeNavigator"],
+        order: ["localStorage"],
         caches: ["localStorage"],
         lookupLocalStorage: "vm-lang",
       },
       returnObjects: true,
     });
 }
-
-LanguageDetector.addDetector(ruHeDetector);
 
 export function applyDocumentLang(lang: string) {
   if (typeof document === "undefined") return;
