@@ -8,28 +8,22 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Methodology } from "@/components/sections/Methodology";
-import { Services } from "@/components/sections/Services";
-import { FAQ } from "@/components/sections/FAQ";
-import { BlogPreview } from "@/components/sections/BlogPreview";
-import { Contact } from "@/components/sections/Contact";
+import { ScreeningForm } from "@/components/sections/ScreeningForm";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Валентин Максимов — Консультант по зависимостям | Израиль" },
+      { title: "Валентин Максимов — Консультант. Практика 12 шагов | Израиль" },
       {
         name: "description",
         content:
-          "Частная практика по работе с зависимостями, созависимостью и профилем ВДА. Израиль. Онлайн и очно. Русский, иврит, английский.",
+          "Частная практика для взрослых: работа с выгоранием, гиперконтролем и созависимостью на основе принципов 12-шаговой программы. Израиль. Русский, иврит.",
       },
-      {
-        property: "og:title",
-        content: "Валентин Максимов — Консультант по зависимостям | Израиль",
-      },
+      { property: "og:title", content: "Валентин Максимов — Консультант" },
       {
         property: "og:description",
         content:
-          "Интеграция 12-шаговой методологии и доказательной практики (TIP 35, Нати Ронель). Конфиденциально. Ru · He · En.",
+          "Когда контроль больше не спасает. Помогаю разобрать механизм и вернуть настоящую опору на себя.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -51,10 +45,7 @@ function Home() {
         <Hero />
         <About />
         <Methodology />
-        <Services />
-        <FAQ />
-        <BlogPreview />
-        <Contact />
+        <ScreeningForm />
       </main>
       <Footer />
     </div>

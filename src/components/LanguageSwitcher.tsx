@@ -3,7 +3,6 @@ import { SUPPORTED_LANGS, type AppLang } from "@/i18n";
 
 const LABELS: Record<AppLang, string> = {
   ru: "РУ",
-  en: "EN",
   he: "עב",
 };
 
@@ -19,19 +18,15 @@ export function LanguageSwitcher() {
             type="button"
             onClick={() => i18n.changeLanguage(lng)}
             className={
-              "transition-colors duration-500 " +
-              (current === lng
-                ? "text-ink"
-                : "text-muted hover:text-ink")
+              "transition-all duration-500 " +
+              (current === lng ? "text-ink" : "text-muted hover:text-ink")
             }
             aria-current={current === lng ? "true" : undefined}
           >
             {LABELS[lng]}
           </button>
           {idx < SUPPORTED_LANGS.length - 1 && (
-            <span className="text-border select-none" aria-hidden="true">
-              |
-            </span>
+            <span className="text-border select-none" aria-hidden="true">|</span>
           )}
         </div>
       ))}
