@@ -4,11 +4,10 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import ru from "./locales/ru.json";
 import he from "./locales/he.json";
-import en from "./locales/en.json";
 
-export type AppLang = "ru" | "he" | "en";
+export type AppLang = "ru" | "he";
 
-export const SUPPORTED_LANGS: AppLang[] = ["ru", "he", "en"];
+export const SUPPORTED_LANGS: AppLang[] = ["ru", "he"];
 
 if (!i18n.isInitialized) {
   i18n
@@ -18,7 +17,6 @@ if (!i18n.isInitialized) {
       resources: {
         ru: { translation: ru },
         he: { translation: he },
-        en: { translation: en },
       },
       fallbackLng: "ru",
       supportedLngs: SUPPORTED_LANGS,

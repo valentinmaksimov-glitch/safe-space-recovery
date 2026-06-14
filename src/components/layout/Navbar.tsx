@@ -5,15 +5,20 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 const SECTIONS = [
   { id: "about", key: "nav.about" },
   { id: "methodology", key: "nav.methodology" },
-  { id: "services", key: "nav.services" },
-  { id: "faq", key: "nav.faq" },
-  { id: "blog", key: "nav.blog" },
   { id: "contact", key: "nav.contact" },
 ] as const;
 
 export function Navbar() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -30,30 +35,36 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur-sm border-b border-border">
+    <header
+      className={
+        "fixed top-0 inset-x-0 z-50 transition-all duration-500 " +
+        (scrolled
+          ? "bg-paper/95 backdrop-blur-sm border-b border-border"
+          : "bg-transparent border-b border-transparent")
+      }
+    >
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <button
           onClick={() => scrollTo("hero")}
-          className="text-ink text-sm font-light tracking-[0.4em]"
-          aria-label="Valentin Maksimov"
+          className="text-ink text-sm font-light tracking-widest uppercase"
         >
-          VM
+          Valentin Maksimov
         </button>
 
-        <div className="flex items-center gap-6">
-          <LanguageSwitcher />
-
+        <div className="flex items-center gap-8">
           <nav className="hidden md:flex items-center gap-8">
             {SECTIONS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className="text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-500"
+                className="text-xs tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
               >
                 {t(s.key)}
               </button>
             ))}
           </nav>
+
+          <LanguageSwitcher />
 
           <button
             type="button"
@@ -76,7 +87,7 @@ export function Navbar() {
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-colors duration-500"
+                className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
               >
                 {t(s.key)}
               </button>
