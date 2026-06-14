@@ -43,13 +43,13 @@
 }
 
 :root {
-  --paper: #F9F9F8;
-  --ink: #1C1C1A;
+  --paper: #F5F4F0;
+  --ink: #1A1D20;
   --muted: #6B7280;
   --muted-foreground: #6B7280;
   --border: #E5E7EB;
-  --accent: #4A5568;
-  --accent-hover: #374151;
+  --accent: #1E3A5F;
+  --accent-hover: #2C3E50;
 
   --background: var(--paper);
   --foreground: var(--ink);
