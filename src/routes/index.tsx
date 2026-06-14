@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Methodology } from "@/components/sections/Methodology";
+import { FAQ } from "@/components/sections/FAQ";
 import { ScreeningForm } from "@/components/sections/ScreeningForm";
 
 export const Route = createFileRoute("/")({
@@ -45,6 +46,7 @@ function Home() {
         <Hero />
         <About />
         <Methodology />
+        <FAQ />
         <ScreeningForm />
       </main>
       <Footer />

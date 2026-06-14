@@ -5,6 +5,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 const SECTIONS = [
   { id: "about", key: "nav.about" },
   { id: "methodology", key: "nav.methodology" },
+  { id: "faq", key: "nav.faq" },
   { id: "contact", key: "nav.contact" },
 ] as const;
 
