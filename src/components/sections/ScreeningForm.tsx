@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-type FocusArea = "opt1" | "opt2" | "opt3";
+type FocusArea = "opt1" | "opt2" | "opt3" | "opt4";
 
 export function ScreeningForm() {
   const { t } = useTranslation();
@@ -80,7 +80,7 @@ export function ScreeningForm() {
                 {t("form.step1_title")}
               </h2>
               <div className="flex flex-col gap-3">
-                {(["opt1", "opt2", "opt3"] as FocusArea[]).map((opt) => (
+                {(["opt1", "opt2", "opt3", "opt4"] as FocusArea[]).map((opt) => (
                   <label
                     key={opt}
                     className={

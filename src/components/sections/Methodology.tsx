@@ -9,8 +9,11 @@ export function Methodology() {
   return (
     <section id="methodology" className="py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-5xl">
-        <p className="text-xs tracking-[0.4em] uppercase text-muted mb-12 text-center">
+        <p className="text-xs tracking-[0.4em] uppercase text-muted mb-8 text-center">
           {t("methodology.heading")}
+        </p>
+        <p className="max-w-3xl mx-auto text-base md:text-lg text-muted font-light leading-relaxed text-center mb-16">
+          {t("methodology.intro")}
         </p>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {items.map((it) => (
