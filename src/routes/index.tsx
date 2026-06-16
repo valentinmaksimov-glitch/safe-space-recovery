@@ -6,25 +6,26 @@ import { applyDocumentLang } from "@/i18n";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Triggers } from "@/components/sections/Triggers";
 import { About } from "@/components/sections/About";
-import { Methodology } from "@/components/sections/Methodology";
+import { HowIWork } from "@/components/sections/HowIWork";
 import { FAQ } from "@/components/sections/FAQ";
-import { ScreeningForm } from "@/components/sections/ScreeningForm";
+import { Contact } from "@/components/sections/Contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Валентин Максимов — Консультант. Практика 12 шагов | Израиль" },
+      { title: "Валентин Максимов — Консультант | Израиль" },
       {
         name: "description",
         content:
-          "Частная практика для взрослых: работа с выгоранием, гиперконтролем и созависимостью на основе принципов 12-шаговой программы. Израиль. Русский, иврит.",
+          "Частная практика: работа с зависимым поведением, гиперконтролем и повторяющимися кризисами. Очно в Израиле и онлайн. Русский, иврит, английский.",
       },
       { property: "og:title", content: "Валентин Максимов — Консультант" },
       {
         property: "og:description",
         content:
-          "Когда контроль больше не спасает. Помогаю разобрать механизм и вернуть настоящую опору на себя.",
+          "Выход из замкнутого круга. Диагностика, восстановление опор, устойчивые изменения.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -44,10 +45,11 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Triggers />
         <About />
-        <Methodology />
+        <HowIWork />
         <FAQ />
-        <ScreeningForm />
+        <Contact />
       </main>
       <Footer />
     </div>
