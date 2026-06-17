@@ -93,6 +93,7 @@ export function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               maxLength={2000}
+              placeholder={t("contact.message_placeholder")}
               className="w-full px-4 py-4 bg-transparent border border-border focus:border-accent outline-none text-ink font-light leading-relaxed resize-none transition-all duration-500"
             />
             {errors.message && (
