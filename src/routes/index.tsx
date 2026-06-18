@@ -11,6 +11,7 @@ import { About } from "@/components/sections/About";
 import { HowIWork } from "@/components/sections/HowIWork";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
+import { AuditCTA } from "@/components/sections/AuditCTA";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +47,7 @@ function Home() {
       <main>
         <Hero />
         <Triggers />
+        <AuditCTA />
         <About />
         <HowIWork />
         <FAQ />
