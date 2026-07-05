@@ -10,7 +10,7 @@ const contactFormSchema = z.object({
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export const submitContactForm = createServerFn({ method: "POST" })
-  .validator(contactFormSchema)
+  .inputValidator((data: unknown) => contactFormSchema.parse(data))
   .handler(async ({ data }) => {
     // Store contact form submission
     // In production, you would send an email here using a service like:
