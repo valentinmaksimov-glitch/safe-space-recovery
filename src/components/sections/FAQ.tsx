@@ -15,9 +15,9 @@ export function FAQ() {
   return (
     <section id="faq" className="py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-3xl">
-        <p className="text-xs tracking-[0.4em] uppercase text-muted mb-12 text-center">
+        <h2 className="text-xs tracking-[0.4em] uppercase text-muted mb-12 text-center font-normal">
           {t("faq.heading")}
-        </p>
+        </h2>
         <Accordion type="single" collapsible className="w-full">
           {items.map((it, i) => (
             <AccordionItem

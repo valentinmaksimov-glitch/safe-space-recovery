@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#F5F4F0"/>
+  <rect x="60" y="60" width="1080" height="510" rx="4" fill="#1E3A5F"/>
+  <text x="600" y="280" dominant-baseline="central" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="300" fill="#F5F4F0" letter-spacing="0.05">Управление жизненными сценариями</text>
+  <text x="600" y="360" dominant-baseline="central" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="#F5F4F0" opacity="0.7">Профессиональный аудит</text>
+  <text x="600" y="480" dominant-baseline="central" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="400" fill="#F5F4F0" letter-spacing="0.2" opacity="0.6">VALENTIN MAKSIMOV</text>
+</svg>

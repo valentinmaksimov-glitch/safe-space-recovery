@@ -77,14 +77,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Валентин Максимов — специалист по работе с зависимостями | Израиль" },
+      {
+        name: "description",
+        content:
+          "Специалист по работе с химическими и поведенческими зависимостями. Работаю в Израиле — очно и онлайн, на русском и иврите. Без осуждения.",
+      },
+      { name: "author", content: "Valentin Maksimov" },
+      { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Валентин Максимов" },
+      { property: "og:image", content: "https://valentin-maksimov.com/valentin.jpg" },
+      { property: "og:image:width", content: "600" },
+      { property: "og:image:height", content: "600" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -93,6 +99,49 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+Hebrew:wght@300;400;500&display=swap",
+      },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["Person", "LocalBusiness"],
+          "name": "Валентин Максимов",
+          "alternateName": "Valentin Maksimov",
+          "jobTitle": "Addiction Counselor & Behavioral Patterns Specialist",
+          "description": "Специалист по работе с химическими и поведенческими зависимостями.",
+          "url": "https://valentin-maksimov.com",
+          "image": "https://valentin-maksimov.com/valentin.jpg",
+          "telephone": "+972-50-609-6289",
+          "areaServed": { "@type": "Country", "name": "Israel" },
+          "availableLanguage": ["Russian", "Hebrew"],
+          // TODO: add real profile URLs once Facebook/Instagram/Telegram pages are live, e.g.:
+          // "sameAs": ["https://facebook.com/...", "https://instagram.com/...", "https://t.me/..."],
+          "knowsAbout": [
+            "addiction counseling",
+            "12-step programs",
+            "behavioral pattern correction",
+            "CBT",
+            "NLP",
+            "Mindfulness",
+            "crisis counseling",
+            "co-dependency",
+          ],
+          "hasCredential": [
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Professional Training Program",
+              "recognizedBy": { "@type": "Organization", "name": "Bar-Ilan University" },
+            },
+            {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Crisis Counseling",
+              "recognizedBy": { "@type": "Organization", "name": "IPP" },
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -104,7 +153,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <HeadContent />
       </head>

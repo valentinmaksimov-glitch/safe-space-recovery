@@ -5,7 +5,6 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 const SECTIONS = [
   { id: "about", key: "nav.about" },
   { id: "how", key: "nav.how" },
-  { id: "faq", key: "nav.faq" },
   { id: "contact", key: "nav.contact" },
 ] as const;
 
@@ -47,9 +46,9 @@ export function Navbar() {
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         <button
           onClick={() => scrollTo("hero")}
-          className="text-ink text-sm font-light tracking-widest uppercase"
+          className="text-ink text-base font-medium tracking-wide"
         >
-          Valentin Maksimov
+          {t("brand.name")}
         </button>
 
         <div className="flex items-center gap-8">

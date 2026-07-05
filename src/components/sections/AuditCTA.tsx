@@ -14,10 +14,10 @@ export function AuditCTA() {
         </p>
         <div className="mt-12">
           <a
-            href="https://tally.so/r/eqoJEx"
+            href={t("audit.tally_url")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center border border-paper text-paper px-10 py-4 text-xs tracking-[0.18em] uppercase font-normal hover:bg-paper hover:text-ink transition-all duration-500"
+            className="inline-flex items-center justify-center border border-paper text-paper px-10 py-4 text-xs tracking-[0.18em] uppercase font-normal hover:bg-paper hover:text-ink transition-all duration-500 min-h-[44px]"
           >
             {t("audit.button")}
           </a>

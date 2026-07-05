@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://valentin-maksimov.com/sitemap.xml

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-const WHATSAPP_URL = "https://wa.me/972000000000";
+const WHATSAPP_URL = "https://wa.me/972506096289";
+const TELEGRAM_URL = "https://t.me/V_m_help";
 
 export function Hero() {
   const { t } = useTranslation();
@@ -10,32 +11,59 @@ export function Hero() {
       className="min-h-screen flex items-center justify-center bg-paper px-6 pt-24"
     >
       <div className="max-w-3xl text-center">
-        <h1 className="text-4xl md:text-6xl font-light tracking-wide text-ink leading-tight">
+        <h1 className="text-3xl md:text-4xl font-light tracking-wide text-ink leading-tight">
           {t("hero.title")}
         </h1>
-        <p className="text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto mt-8">
+        <p className="text-xl md:text-2xl text-ink font-light tracking-wide max-w-2xl mx-auto mt-8">
           {t("hero.subtitle")}
         </p>
+        <p className="text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto mt-4">
+          {t("hero.subtitle_extended")}
+        </p>
         <span className="hairline my-10" />
+
+        {/* Button hierarchy: primary → secondary → tertiary */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Primary — filled accent */}
           <button
             onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="btn-quiet"
+            className="inline-flex items-center justify-center bg-accent text-paper text-xs tracking-[0.18em] uppercase px-8 py-4 hover:opacity-90 transition-all duration-300 min-h-[44px] rounded-sm"
           >
             {t("hero.cta_primary")}
           </button>
+
+          {/* Secondary — outlined */}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs tracking-[0.18em] uppercase text-ink border border-ink px-8 py-4 hover:bg-ink hover:text-paper transition-all duration-500"
+            className="inline-flex items-center justify-center text-xs tracking-[0.18em] uppercase text-ink border border-ink px-8 py-4 hover:bg-ink hover:text-paper transition-all duration-500 min-h-[44px]"
           >
             {t("hero.cta_secondary")}
           </a>
+
+          {/* Tertiary — text only with icon */}
+          <a
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase text-muted hover:text-ink transition-all duration-500 min-h-[44px] px-4"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
+            {t("hero.cta_telegram")}
+          </a>
         </div>
-        <p className="text-xs tracking-widest text-muted mt-10 leading-relaxed">
+
+        {/* Privacy badge */}
+        <p className="text-xs text-muted mt-6 leading-relaxed">
+          {t("hero.privacy_badge")}
+        </p>
+
+        <p className="text-xs tracking-widest text-muted mt-6 leading-relaxed uppercase">
           {t("hero.trust")}
         </p>
       </div>
