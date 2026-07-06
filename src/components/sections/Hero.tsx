@@ -1,8 +1,7 @@
 import { useTranslation } from "react-i18next";
 
-const WHATSAPP_URL = "https://wa.me/972506096289";
 const TELEGRAM_URL = "https://t.me/V_m_help";
-const PHONE_NUMBER = "050-6096289";
+
 
 export function Hero() {
   const { t } = useTranslation();
