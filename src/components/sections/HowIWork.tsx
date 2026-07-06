@@ -157,14 +157,7 @@ export function HowIWork() {
                 </p>
               )}
 
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center text-sm text-muted hover:text-accent transition-colors duration-300 pt-2"
-              >
-                {t("how.form_whatsapp")}
-              </a>
+
             </form>
           </div>
         </div>
