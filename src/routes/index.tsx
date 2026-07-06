@@ -14,27 +14,27 @@ import { Contact } from "@/components/sections/Contact";
 import { AuditCTA } from "@/components/sections/AuditCTA";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
+head: () => ({
     meta: [
-      { title: "Валентин Максимов — специалист по работе с зависимостями | Израиль" },
+      { title: "Валентин Максимов — Специалист по зависимостям и поведенческим паттернам" },
       {
         name: "description",
         content:
-          "Специалист по работе с химическими и поведенческими зависимостями. Работаю в Израиле — очно и онлайн, на русском и иврите. Без осуждения.",
+          "Помогаю разорвать замкнутый круг деструктивных привычек. Интегративный подход: CBT, NLP, 12 шагов. Очно в Израиле и онлайн. Полная анонимность и бережное отношение без осуждения.",
       },
       {
         property: "og:title",
-        content: "Валентин Максимов — специалист по работе с зависимостями",
+        content: "Валентин Максимов — Специалист по зависимостям и поведенческим паттернам",
       },
       {
         property: "og:description",
         content:
-          "Работаю в Израиле с химическими и поведенческими зависимостями. Очно и онлайн, без осуждения.",
+          "Помогаю разорвать замкнутый круг деструктивных привычек. Очно в Израиле и онлайн. Без осуждения.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://valentin-maksimov.com" },
+      { property: "og:url", content: "https://VASH-DOMEN.co.il" }, 
       { property: "og:locale", content: "ru_IL" },
-      { property: "og:image", content: "https://valentin-maksimov.com/valentin.jpg" },
+      { property: "og:image", content: "https://VASH-DOMEN.co.il/valentin.jpg" },
       { property: "og:image:width", content: "600" },
       { property: "og:image:height", content: "600" },
       {
@@ -42,63 +42,79 @@ export const Route = createFileRoute("/")({
         content: "Валентин Максимов — специалист по работе с зависимостями, Израиль",
       },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Валентин Максимов — специалист по работе с зависимостями | Израиль" },
+      { name: "twitter:title", content: "Валентин Максимов — Специалист по зависимостям" },
       {
         name: "twitter:description",
         content:
-          "Специалист по работе с химическими и поведенческими зависимостями. Израиль, очно и онлайн.",
+          "Помогаю разорвать замкнутый круг деструктивных привычек. Израиль, очно и онлайн.",
       },
-      { name: "twitter:image", content: "https://valentin-maksimov.com/valentin.jpg" },
+      { name: "twitter:image", content: "https://VASH-DOMEN.co.il/valentin.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://valentin-maksimov.com/" }],
+    links: [{ rel: "canonical", href: "https://VASH-DOMEN.co.il/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
+          "@graph": [
             {
-              "@type": "Question",
-              "name": "Это похоже на психотерапию?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Я не ставлю диагнозов. Моя работа практическая: мы анализируем поведенческие сценарии и создаём план изменений.",
+              "@type": "ProfessionalService",
+              "name": "Валентин Максимов — Консультант по зависимостям",
+              "description": "Специалист по зависимостям и коррекции поведенческих паттернов. Помощь в разрыве замкнутого круга деструктивных привычек. Интегративный подход: CBT, NLP, 12 шагов.",
+              "url": "https://VASH-DOMEN.co.il",
+              "telephone": "+972506096289",
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IL"
               },
+              "knowsLanguage": ["ru", "he"]
             },
             {
-              "@type": "Question",
-              "name": "Сколько сессий нужно?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Первые изменения заметны через 4–6 встреч. Устойчивый результат требует 3–6 месяцев работы.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Вы работаете с зависимостями?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Работаю с зависимым поведением, эмоциональной зависимостью, гиперконтролем и деструктивными паттернами.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Как проходят встречи?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Очно в Израиле или онлайн. Формат онлайн не уступает очному по эффективности.",
-              },
-            },
-            {
-              "@type": "Question",
-              "name": "Первая встреча?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Это спокойная беседа, чтобы познакомиться, прояснить ситуацию и понять, комфортно ли нам работать вместе. Никакого давления — только честная оценка того, чем я могу быть вам полезен.",
-              },
-            },
-          ],
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Это похоже на психотерапию?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Я не ставлю диагнозов. Моя работа практическая: мы анализируем поведенческие сценарии и создаём план изменений.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  "name": "Сколько сессий нужно?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Первые изменения заметны через 4–6 встреч. Устойчивый результат требует 3–6 месяцев работы.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  "name": "Вы работаете с зависимостями?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Работаю с зависимым поведением, эмоциональной зависимостью, гиперконтролем и деструктивными паттернами.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  "name": "Как проходят встречи?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Очно в Израиле или онлайн. Формат онлайн не уступает очному по эффективности.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  "name": "Первая встреча?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Это спокойная беседа, чтобы познакомиться, прояснить ситуацию и понять, комфортно ли нам работать вместе. Никакого давления — только честная оценка того, чем я могу быть вам полезен.",
+                  },
+                }
+              ]
+            }
+          ]
         }),
       },
     ],
