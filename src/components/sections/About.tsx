@@ -33,12 +33,9 @@ export function About() {
                 <li key={i} className="ps-5 border-s border-accent">
                   <p className="text-sm text-muted font-light leading-relaxed">{q.text}</p>
                   {q.link_label && (
-                    <a
-                      href="#"
-                      className="inline-block mt-2 text-xs tracking-widest uppercase text-accent hover:text-ink transition-all duration-500"
-                    >
-                      {q.link_label} →
-                    </a>
+                    <span className="inline-block mt-2 text-xs tracking-widest uppercase text-accent">
+                      {q.link_label}
+                    </span>
                   )}
                 </li>
               ))}

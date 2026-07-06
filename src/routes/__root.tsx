@@ -116,9 +116,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "image": "https://valentin-maksimov.com/valentin.jpg",
           "telephone": "+972-50-609-6289",
           "areaServed": { "@type": "Country", "name": "Israel" },
+          "address": { "@type": "PostalAddress", "addressCountry": "IL" },
+          "priceRange": "$$",
           "availableLanguage": ["Russian", "Hebrew"],
-          // TODO: add real profile URLs once Facebook/Instagram/Telegram pages are live, e.g.:
-          // "sameAs": ["https://facebook.com/...", "https://instagram.com/...", "https://t.me/..."],
+          "sameAs": ["https://t.me/V_m_help"],
           "knowsAbout": [
             "addiction counseling",
             "12-step programs",
