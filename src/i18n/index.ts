@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
 
 import ru from "./locales/ru.json";
 import he from "./locales/he.json";
@@ -9,25 +8,36 @@ export type AppLang = "ru" | "he";
 
 export const SUPPORTED_LANGS: AppLang[] = ["ru", "he"];
 
+const STORAGE_KEY = "vm-lang";
+
 if (!i18n.isInitialized) {
   i18n
-    .use(LanguageDetector)
     .use(initReactI18next)
     .init({
       resources: {
         ru: { translation: ru },
         he: { translation: he },
       },
+      // Deterministic initial language for SSR + first client render.
+      // We upgrade to the visitor's stored preference in useEffect after mount
+      // to avoid hydration mismatches.
+      lng: "ru",
       fallbackLng: "ru",
       supportedLngs: SUPPORTED_LANGS,
       interpolation: { escapeValue: false },
-      detection: {
-        order: ["localStorage"],
-        caches: ["localStorage"],
-        lookupLocalStorage: "vm-lang",
-      },
       returnObjects: true,
     });
+}
+
+export function detectStoredLang(): AppLang {
+  if (typeof window === "undefined") return "ru";
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "ru" || stored === "he") return stored;
+  } catch {
+    // ignore storage errors (private mode, etc.)
+  }
+  return "ru";
 }
 
 export function applyDocumentLang(lang: string) {
@@ -37,6 +47,15 @@ export function applyDocumentLang(lang: string) {
   document.documentElement.lang = lang;
 }
 
-i18n.on("languageChanged", applyDocumentLang);
+i18n.on("languageChanged", (lng) => {
+  applyDocumentLang(lng);
+  if (typeof window !== "undefined") {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lng);
+    } catch {
+      // ignore
+    }
+  }
+});
 
 export default i18n;

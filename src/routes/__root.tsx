@@ -77,6 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#1E3A5F" },
+      { name: "format-detection", content: "telephone=yes" },
       { title: "Валентин Максимов — специалист по работе с зависимостями | Израиль" },
       {
         name: "description",
@@ -84,13 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Специалист по работе с химическими и поведенческими зависимостями. Работаю в Израиле — очно и онлайн, на русском и иврите. Без осуждения.",
       },
       { name: "author", content: "Valentin Maksimov" },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Валентин Максимов" },
-      { property: "og:image", content: "https://valentin-maksimov.com/valentin.jpg" },
-      { property: "og:image:width", content: "600" },
-      { property: "og:image:height", content: "600" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@valentinmaksimov" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -101,25 +102,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+Hebrew:wght@300;400;500&display=swap",
       },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "apple-touch-icon", href: "/favicon.svg" },
+      { rel: "manifest", href: "/site.webmanifest" },
     ],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": ["Person", "LocalBusiness"],
+          "@type": "Person",
+          "@id": "https://valentin-maksimov.com/#person",
           "name": "Валентин Максимов",
-          "alternateName": "Valentin Maksimov",
+          "alternateName": ["Valentin Maksimov", "ולנטין מקסימוב"],
           "jobTitle": "Addiction Counselor & Behavioral Patterns Specialist",
-          "description": "Специалист по работе с химическими и поведенческими зависимостями.",
+          "description":
+            "Специалист по работе с химическими и поведенческими зависимостями. Интегративный подход: CBT, NLP, 12 шагов, майндфулнес.",
           "url": "https://valentin-maksimov.com",
           "image": "https://valentin-maksimov.com/valentin.jpg",
           "telephone": "+972-50-609-6289",
           "areaServed": { "@type": "Country", "name": "Israel" },
           "address": { "@type": "PostalAddress", "addressCountry": "IL" },
-          "priceRange": "$$",
-          "availableLanguage": ["Russian", "Hebrew"],
-          "sameAs": ["https://t.me/V_m_help"],
+          "knowsLanguage": ["ru", "he"],
+          "sameAs": [
+            "https://t.me/V_m_help",
+            "https://wa.me/972506096289",
+          ],
           "knowsAbout": [
             "addiction counseling",
             "12-step programs",
@@ -130,16 +137,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "crisis counseling",
             "co-dependency",
           ],
-          "hasCredential": [
+          "contactPoint": [
             {
-              "@type": "EducationalOccupationalCredential",
-              "name": "Professional Training Program",
-              "recognizedBy": { "@type": "Organization", "name": "Bar-Ilan University" },
-            },
-            {
-              "@type": "EducationalOccupationalCredential",
-              "name": "Crisis Counseling",
-              "recognizedBy": { "@type": "Organization", "name": "IPP" },
+              "@type": "ContactPoint",
+              "telephone": "+972506096289",
+              "contactType": "customer service",
+              "availableLanguage": ["Russian", "Hebrew"],
+              "areaServed": "IL",
             },
           ],
         }),

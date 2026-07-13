@@ -1,0 +1,12 @@
+{
+  "name": "Валентин Максимов",
+  "short_name": "VM",
+  "description": "Специалист по зависимостям и поведенческим паттернам",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F4F0",
+  "theme_color": "#1E3A5F",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
