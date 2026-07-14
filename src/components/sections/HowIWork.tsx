@@ -139,7 +139,7 @@ export function HowIWork() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="block w-full bg-accent text-paper py-4 text-sm tracking-[0.18em] uppercase font-normal rounded-sm hover:bg-accent-hover transition-all duration-500 min-h-[44px] text-center disabled:opacity-60"
+                className="cta-lift block w-full bg-accent text-paper py-4 text-sm tracking-[0.18em] uppercase font-normal rounded-sm hover:bg-accent-hover min-h-[48px] text-center disabled:opacity-60"
               >
                 {status === "sending" ? t("how.form_sending") : t("how.form_submit")}
               </button>
