@@ -69,7 +69,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden text-ink p-2"
+            className="md:hidden text-ink p-3 -mr-2 min-w-[44px] min-h-[44px] flex flex-col justify-center items-center"
             aria-label="Menu"
             aria-expanded={open}
           >
