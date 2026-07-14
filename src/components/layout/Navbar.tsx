@@ -43,21 +43,21 @@ export function Navbar() {
           : "bg-transparent border-b border-transparent")
       }
     >
-      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 h-16 flex items-center justify-between">
         <button
           onClick={() => scrollTo("hero")}
-          className="text-ink text-base font-medium tracking-wide"
+          className="text-ink text-base font-medium tracking-wide hover:text-accent transition-colors duration-300"
         >
           {t("brand.name")}
         </button>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6 sm:gap-8">
           <nav className="hidden md:flex items-center gap-8">
             {SECTIONS.map((s) => (
               <button
                 key={s.id}
                 onClick={() => scrollTo(s.id)}
-                className="text-xs tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
+                className="link-underline text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-300"
               >
                 {t(s.key)}
               </button>
@@ -69,7 +69,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden text-ink p-2"
+            className="md:hidden text-ink p-3 -mr-2 min-w-[44px] min-h-[44px] flex flex-col justify-center items-center"
             aria-label="Menu"
             aria-expanded={open}
           >
