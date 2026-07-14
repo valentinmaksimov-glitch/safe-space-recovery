@@ -63,21 +63,21 @@ export function HowIWork() {
   }
 
   return (
-    <section id="how" className="py-28 px-6 border-t border-border">
+    <section id="how" className="py-24 md:py-28 px-5 sm:px-6 border-t border-border">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl md:text-3xl font-light tracking-wide text-ink mb-6 text-center">
+        <h2 className="text-2xl md:text-3xl font-light tracking-wide text-ink mb-5 text-center">
           {t("how.heading")}
         </h2>
-        <p className="text-base text-muted font-light leading-relaxed mb-16 text-center max-w-3xl mx-auto">
+        <p className="text-base text-muted font-light leading-relaxed mb-14 text-center max-w-3xl mx-auto">
           {t("how.intro")}
         </p>
-        <div className="grid md:grid-cols-3 gap-12 md:gap-10">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((s, i) => (
-            <div key={i} className="text-start">
-              <p className="text-xs tracking-[0.3em] text-accent mb-4">
+            <div key={i} className="card-lift text-start p-6 md:p-7 rounded-sm">
+              <p className="text-xs tracking-[0.3em] text-accent mb-3">
                 {String(i + 1).padStart(2, "0")}
               </p>
-              <h3 className="text-xl font-light tracking-wide text-ink mb-3">
+              <h3 className="text-xl font-light tracking-wide text-ink mb-2">
                 {s.title}
               </h3>
               <p className="text-sm text-muted font-light leading-relaxed">
