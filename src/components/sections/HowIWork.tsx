@@ -65,9 +65,12 @@ export function HowIWork() {
   return (
     <section id="how" className="py-28 px-6 border-t border-border">
       <div className="mx-auto max-w-5xl">
-        <h2 className="text-2xl md:text-3xl font-light tracking-wide text-ink mb-16 text-center">
+        <h2 className="text-2xl md:text-3xl font-light tracking-wide text-ink mb-6 text-center">
           {t("how.heading")}
         </h2>
+        <p className="text-base text-muted font-light leading-relaxed mb-16 text-center max-w-3xl mx-auto">
+          {t("how.intro")}
+        </p>
         <div className="grid md:grid-cols-3 gap-12 md:gap-10">
           {steps.map((s, i) => (
             <div key={i} className="text-start">
