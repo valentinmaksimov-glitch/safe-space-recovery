@@ -102,7 +102,8 @@ export function Footer() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20c55a] transition-colors duration-300 md:hidden"
+        className="fixed bottom-5 right-5 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-8px_rgba(37,211,102,0.55)] hover:bg-[#20c55a] hover:scale-105 active:scale-95 transition-transform duration-300 md:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom, 0)" }}
       >
         <IconWhatsApp />
       </a>
