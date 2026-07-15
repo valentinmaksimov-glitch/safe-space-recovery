@@ -19,6 +19,16 @@ const COPY = {
   },
 } as const;
 
+export function detectLangFromRequest(request?: Request): "ru" | "he" {
+  if (!request) return "ru";
+  const cookie = request.headers.get("cookie") ?? "";
+  const m = /(?:^|;\s*)vm-lang=(ru|he)/.exec(cookie);
+  if (m) return m[1] as "ru" | "he";
+  const al = (request.headers.get("accept-language") ?? "").toLowerCase();
+  if (/\b(he|iw)\b/.test(al)) return "he";
+  return "ru";
+}
+
 export function renderErrorPage(lang: string = "ru"): string {
   const c = lang === "he" ? COPY.he : COPY.ru;
   return `<!doctype html>
