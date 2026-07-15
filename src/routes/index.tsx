@@ -12,6 +12,7 @@ import { HowIWork } from "@/components/sections/HowIWork";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { AuditCTA } from "@/components/sections/AuditCTA";
+import { Groups } from "@/components/sections/Groups";
 
 const SITE = "https://valentin-maksimov.com";
 
