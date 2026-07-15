@@ -55,6 +55,12 @@ i18n.on("languageChanged", (lng) => {
     } catch {
       // ignore
     }
+    try {
+      // Also persist as a cookie so SSR (error page, initial render) can detect it.
+      document.cookie = `${STORAGE_KEY}=${lng}; path=/; max-age=31536000; SameSite=Lax`;
+    } catch {
+      // ignore
+    }
   }
 });
 
