@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "ru_RU" },
       { property: "og:locale:alternate", content: "he_IL" },
       { property: "og:site_name", content: "Валентин Максимов" },
-      { property: "og:image", content: `${SITE}/valentin.jpg` },
+      { property: "og:image", content: `${SITE}/og-image.jpg` },
       { property: "og:image:width", content: "600" },
       { property: "og:image:height", content: "600" },
       {
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/")({
         content:
           "Помогаю разорвать замкнутый круг деструктивных привычек. Израиль, очно и онлайн.",
       },
-      { name: "twitter:image", content: `${SITE}/valentin.jpg` },
+      { name: "twitter:image", content: `${SITE}/og-image.jpg` },
     ],
     links: [
       { rel: "canonical", href: `${SITE}/` },
