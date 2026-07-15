@@ -215,8 +215,9 @@ function Home() {
         <Hero />
         <Triggers />
         <AuditCTA />
-        <About />
         <HowIWork />
+        <Groups />
+        <About />
         <FAQ />
         <Contact />
       </main>
