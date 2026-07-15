@@ -7,7 +7,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, Suspense, type ReactNode } from "react";
+import { useTranslation } from "react-i18next";
+import "@/i18n";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -157,8 +159,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const { i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage ?? i18n.language ?? "ru";
+  const dir = lang === "he" ? "rtl" : "ltr";
   return (
-    <html lang="ru">
+    <html lang={lang} dir={dir}>
       <head>
         <HeadContent />
       </head>
@@ -170,13 +175,26 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function RouteFallback() {
+  return (
+    <div className="min-h-screen bg-paper flex items-center justify-center">
+      <div
+        aria-label="Loading"
+        className="w-6 h-6 border border-border border-t-accent rounded-full animate-spin opacity-70"
+      />
+    </div>
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <Suspense fallback={<RouteFallback />}>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </Suspense>
     </QueryClientProvider>
   );
 }

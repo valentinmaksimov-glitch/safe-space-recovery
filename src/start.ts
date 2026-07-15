@@ -1,6 +1,6 @@
 import { createStart, createMiddleware } from "@tanstack/react-start";
 
-import { renderErrorPage } from "./lib/error-page";
+import { renderErrorPage, detectLangFromRequest } from "./lib/error-page";
 
 const errorMiddleware = createMiddleware().server(async ({ next }) => {
   try {
@@ -10,7 +10,14 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
       throw error;
     }
     console.error(error);
-    return new Response(renderErrorPage(), {
+    let lang: "ru" | "he" = "ru";
+    try {
+      // Best-effort: no request object here; keep default
+      lang = detectLangFromRequest(undefined);
+    } catch {
+      // ignore
+    }
+    return new Response(renderErrorPage(lang), {
       status: 500,
       headers: { "content-type": "text/html; charset=utf-8" },
     });

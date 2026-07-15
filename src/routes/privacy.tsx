@@ -11,6 +11,12 @@ export const Route = createFileRoute("/privacy")({
         name: "description",
         content: "Политика обработки персональных данных на сайте консультанта Валентина Максимова.",
       },
+      { property: "og:title", content: "Политика конфиденциальности | Валентин Максимов" },
+      {
+        property: "og:description",
+        content: "Политика обработки персональных данных.",
+      },
+      { name: "robots", content: "noindex, follow" },
     ],
     links: [{ rel: "canonical", href: "https://valentin-maksimov.com/privacy" }],
   }),
@@ -26,9 +32,13 @@ function PrivacyPage() {
       <Navbar />
       <main className="pt-32 pb-20 px-6">
         <div className="mx-auto max-w-3xl">
-          <h1 className="text-3xl md:text-4xl font-light tracking-wide text-ink mb-12">
+          <div
+            role="heading"
+            aria-level={1}
+            className="text-3xl md:text-4xl font-light tracking-wide text-ink mb-12"
+          >
             {isHebrew ? "מדיניות פרטיות" : "Политика конфиденциальности"}
-          </h1>
+          </div>
 
           <div className="text-muted text-sm leading-relaxed space-y-6">
             <p>
