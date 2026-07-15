@@ -1,4 +1,4 @@
-import { createStart, createMiddleware, getRequest } from "@tanstack/react-start";
+import { createStart, createMiddleware } from "@tanstack/react-start";
 
 import { renderErrorPage, detectLangFromRequest } from "./lib/error-page";
 
@@ -12,9 +12,10 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
     console.error(error);
     let lang: "ru" | "he" = "ru";
     try {
-      lang = detectLangFromRequest(getRequest());
+      // Best-effort: no request object here; keep default
+      lang = detectLangFromRequest(undefined);
     } catch {
-      // getRequest may not be available in all contexts
+      // ignore
     }
     return new Response(renderErrorPage(lang), {
       status: 500,
