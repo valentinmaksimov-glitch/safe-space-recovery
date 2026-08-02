@@ -56,13 +56,22 @@ export function Footer() {
             {t("footer.rights")}
           </div>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-5">
+          {/* Social icons: Telegram → Instagram → Facebook */}
+          <div className="flex items-center gap-6">
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted transition-colors duration-300 hover:text-[#0088cc]"
+              aria-label="Telegram"
+            >
+              <IconTelegram />
+            </a>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-ink transition-colors duration-300"
+              className="text-muted transition-colors duration-300 hover:text-[#E1306C]"
               aria-label="Instagram"
             >
               <IconInstagram />
@@ -71,21 +80,13 @@ export function Footer() {
               href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-ink transition-colors duration-300"
+              className="text-muted transition-colors duration-300 hover:text-[#4267B2]"
               aria-label="Facebook"
             >
               <IconFacebook />
             </a>
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-ink transition-colors duration-300"
-              aria-label="Telegram"
-            >
-              <IconTelegram />
-            </a>
           </div>
+
 
           <Link
             to="/privacy"

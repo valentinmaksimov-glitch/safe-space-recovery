@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@tanstack/react-router";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const SECTIONS = [
@@ -62,7 +63,15 @@ export function Navbar() {
                 {t(s.key)}
               </button>
             ))}
+            <Link
+              to="/blog"
+              className="link-underline text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-300"
+              activeProps={{ className: "text-ink" }}
+            >
+              {t("nav.blog")}
+            </Link>
           </nav>
+
 
           <LanguageSwitcher />
 
@@ -92,7 +101,15 @@ export function Navbar() {
                 {t(s.key)}
               </button>
             ))}
+            <Link
+              to="/blog"
+              onClick={() => setOpen(false)}
+              className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
+            >
+              {t("nav.blog")}
+            </Link>
           </nav>
+
         </div>
       )}
     </header>
