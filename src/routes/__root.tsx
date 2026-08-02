@@ -157,8 +157,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const { i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage ?? i18n.language ?? "ru";
+
   return (
-    <html lang="ru">
+    <html lang={lang} dir={lang === "he" ? "rtl" : "ltr"}>
       <head>
         <HeadContent />
       </head>
@@ -169,6 +172,7 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
