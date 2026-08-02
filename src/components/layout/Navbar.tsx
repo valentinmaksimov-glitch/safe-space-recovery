@@ -101,7 +101,15 @@ export function Navbar() {
                 {t(s.key)}
               </button>
             ))}
+            <Link
+              to="/blog"
+              onClick={() => setOpen(false)}
+              className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
+            >
+              {t("nav.blog")}
+            </Link>
           </nav>
+
         </div>
       )}
     </header>
