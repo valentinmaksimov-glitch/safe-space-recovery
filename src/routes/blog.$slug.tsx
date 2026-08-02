@@ -71,7 +71,7 @@ function ArticlePage() {
             {article.title}
           </h1>
           <div className="mt-10 space-y-6 text-muted text-base leading-relaxed">
-            {article.body.map((p, i) => (
+            {article.body.map((p: string, i: number) => (
               <p key={i}>{p}</p>
             ))}
           </div>
