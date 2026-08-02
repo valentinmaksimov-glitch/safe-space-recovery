@@ -12,6 +12,7 @@ import { HowIWork } from "@/components/sections/HowIWork";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { AuditCTA } from "@/components/sections/AuditCTA";
+import { Partners } from "@/components/sections/Partners";
 
 const SITE = "https://valentin-maksimov.com";
 
@@ -44,9 +45,9 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "ru_RU" },
       { property: "og:locale:alternate", content: "he_IL" },
       { property: "og:site_name", content: "Валентин Максимов" },
-      { property: "og:image", content: `${SITE}/valentin.jpg` },
-      { property: "og:image:width", content: "600" },
-      { property: "og:image:height", content: "600" },
+      { property: "og:image", content: `${SITE}/og-image.jpg` },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       {
         property: "og:image:alt",
         content: "Валентин Максимов — специалист по работе с зависимостями, Израиль",
@@ -58,7 +59,7 @@ export const Route = createFileRoute("/")({
         content:
           "Помогаю разорвать замкнутый круг деструктивных привычек. Израиль, очно и онлайн.",
       },
-      { name: "twitter:image", content: `${SITE}/valentin.jpg` },
+      { name: "twitter:image", content: `${SITE}/og-image.jpg` },
     ],
     links: [
       { rel: "canonical", href: `${SITE}/` },
@@ -217,6 +218,7 @@ function Home() {
         <About />
         <HowIWork />
         <FAQ />
+        <Partners />
         <Contact />
       </main>
       <Footer />
