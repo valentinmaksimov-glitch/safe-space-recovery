@@ -62,7 +62,15 @@ export function Navbar() {
                 {t(s.key)}
               </button>
             ))}
+            <Link
+              to="/blog"
+              className="link-underline text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-300"
+              activeProps={{ className: "text-ink" }}
+            >
+              {t("nav.blog")}
+            </Link>
           </nav>
+
 
           <LanguageSwitcher />
 
