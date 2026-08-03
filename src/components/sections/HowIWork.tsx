@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { toast } from "sonner";
 import { submitContactForm } from "../../lib/api/contact-form";
+import { trackToSheet } from "@/lib/track";
 
 type Step = { title: string; desc: string };
 
@@ -39,6 +41,10 @@ export function HowIWork() {
       // 1. Log the lead server-side (best-effort, doesn't block the flow below)
       submitContactForm({ data: { name, phone, message } }).catch(() => {});
 
+      // 1b. Append rows to Google Sheets: booking request + memo download
+      trackToSheet({ sheet: "appointment", name, phone, worries: message, lang });
+      trackToSheet({ sheet: "memo", name, phone, lang });
+
       // 2. Trigger automatic download of the memo in the visitor's language
       const memoUrl = MEMO_URLS[lang];
       const link = document.createElement("a");
@@ -57,8 +63,12 @@ export function HowIWork() {
       window.open(waUrl, "_blank", "noopener,noreferrer");
 
       setStatus("success");
+      toast.success(t("how.form_success_title"), {
+        description: t("how.form_success"),
+      });
     } catch {
       setStatus("error");
+      toast.error(t("how.form_error"));
     }
   }
 

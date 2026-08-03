@@ -1,10 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "@tanstack/react-router";
+import { useAppLanguage } from "@/hooks/use-app-language";
+import { trackToSheet } from "@/lib/track";
 
 const WHATSAPP_URL = "https://wa.me/972506096289";
 const TELEGRAM_URL = "https://t.me/V_m_help";
 const INSTAGRAM_URL = "https://instagram.com";
-const FACEBOOK_URL = "https://facebook.com";
+const FACEBOOK_URLS: Record<string, string> = {
+  ru: "https://www.facebook.com/profile.php?id=61563027516978",
+  he: "https://www.facebook.com/profile.php?id=61573776970235",
+};
 
 function IconInstagram() {
   return (
@@ -42,6 +47,8 @@ function IconWhatsApp() {
 
 export function Footer() {
   const { t } = useTranslation();
+  const { lang } = useAppLanguage();
+  const facebookUrl = FACEBOOK_URLS[lang] ?? FACEBOOK_URLS.ru;
   return (
     <>
       <footer className="border-t border-border mt-24">
@@ -62,6 +69,7 @@ export function Footer() {
               href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackToSheet({ sheet: "TG", lang })}
               className="text-muted transition-colors duration-300 hover:text-[#0088cc]"
               aria-label="Telegram"
             >
@@ -77,7 +85,7 @@ export function Footer() {
               <IconInstagram />
             </a>
             <a
-              href={FACEBOOK_URL}
+              href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted transition-colors duration-300 hover:text-[#4267B2]"

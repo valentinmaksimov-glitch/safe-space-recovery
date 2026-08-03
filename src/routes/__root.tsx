@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 import "@/i18n";
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -181,6 +182,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Toaster position="top-center" richColors closeButton />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

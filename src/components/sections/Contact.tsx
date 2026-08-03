@@ -1,11 +1,13 @@
 import { useTranslation } from "react-i18next";
+import { trackToSheet } from "@/lib/track";
 
 const PHONE_NUMBER = "050-6096289";
 const WHATSAPP_URL = "https://wa.me/972506096289";
 const TELEGRAM_URL = "https://t.me/V_m_help";
 
 export function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage ?? i18n.language ?? "ru";
 
   return (
     <section id="contact" className="py-24 md:py-28 px-5 sm:px-6 border-t border-border">
@@ -33,6 +35,7 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Telegram"
+              onClick={() => trackToSheet({ sheet: "TG", lang })}
               className="cta-lift inline-flex items-center justify-center w-14 h-14 rounded-full bg-ink text-paper hover:bg-accent min-h-[48px]"
             >
               <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

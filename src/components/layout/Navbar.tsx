@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 const SECTIONS = [
@@ -29,10 +29,24 @@ export function Navbar() {
     };
   }, [open]);
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onHome = pathname === "/";
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     setOpen(false);
+  };
+
+  // On the home page: smooth-scroll in place.
+  // On /blog or /blog/$slug: let the Link navigate home, then scroll to the hash.
+  const handleSectionClick = (e: React.MouseEvent, id: string) => {
+    if (!onHome) {
+      setOpen(false);
+      return;
+    }
+    e.preventDefault();
+    scrollTo(id);
   };
 
   return (
@@ -45,23 +59,27 @@ export function Navbar() {
       }
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 h-16 flex items-center justify-between">
-        <button
-          onClick={() => scrollTo("hero")}
+        <Link
+          to="/"
+          hash="hero"
+          onClick={(e) => handleSectionClick(e, "hero")}
           className="text-ink text-base font-medium tracking-wide hover:text-accent transition-colors duration-300"
         >
           {t("brand.name")}
-        </button>
+        </Link>
 
         <div className="flex items-center gap-6 sm:gap-8">
           <nav className="hidden md:flex items-center gap-8">
             {SECTIONS.map((s) => (
-              <button
+              <Link
                 key={s.id}
-                onClick={() => scrollTo(s.id)}
+                to="/"
+                hash={s.id}
+                onClick={(e) => handleSectionClick(e, s.id)}
                 className="link-underline text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-300"
               >
                 {t(s.key)}
-              </button>
+              </Link>
             ))}
             <Link
               to="/blog"
@@ -93,13 +111,15 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-paper">
           <nav className="px-6 py-8 flex flex-col gap-6">
             {SECTIONS.map((s) => (
-              <button
+              <Link
                 key={s.id}
-                onClick={() => scrollTo(s.id)}
+                to="/"
+                hash={s.id}
+                onClick={(e) => handleSectionClick(e, s.id)}
                 className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
               >
                 {t(s.key)}
-              </button>
+              </Link>
             ))}
             <Link
               to="/blog"
