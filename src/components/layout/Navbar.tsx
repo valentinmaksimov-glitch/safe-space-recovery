@@ -59,23 +59,27 @@ export function Navbar() {
       }
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6 h-16 flex items-center justify-between">
-        <button
-          onClick={() => scrollTo("hero")}
+        <Link
+          to="/"
+          hash="hero"
+          onClick={(e) => handleSectionClick(e, "hero")}
           className="text-ink text-base font-medium tracking-wide hover:text-accent transition-colors duration-300"
         >
           {t("brand.name")}
-        </button>
+        </Link>
 
         <div className="flex items-center gap-6 sm:gap-8">
           <nav className="hidden md:flex items-center gap-8">
             {SECTIONS.map((s) => (
-              <button
+              <Link
                 key={s.id}
-                onClick={() => scrollTo(s.id)}
+                to="/"
+                hash={s.id}
+                onClick={(e) => handleSectionClick(e, s.id)}
                 className="link-underline text-xs tracking-widest uppercase text-muted hover:text-ink transition-colors duration-300"
               >
                 {t(s.key)}
-              </button>
+              </Link>
             ))}
             <Link
               to="/blog"
