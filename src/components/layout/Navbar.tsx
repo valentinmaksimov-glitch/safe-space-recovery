@@ -29,10 +29,24 @@ export function Navbar() {
     };
   }, [open]);
 
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onHome = pathname === "/";
+
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     setOpen(false);
+  };
+
+  // On the home page: smooth-scroll in place.
+  // On /blog or /blog/$slug: let the Link navigate home, then scroll to the hash.
+  const handleSectionClick = (e: React.MouseEvent, id: string) => {
+    if (!onHome) {
+      setOpen(false);
+      return;
+    }
+    e.preventDefault();
+    scrollTo(id);
   };
 
   return (
