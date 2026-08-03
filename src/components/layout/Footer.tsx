@@ -47,6 +47,8 @@ function IconWhatsApp() {
 
 export function Footer() {
   const { t } = useTranslation();
+  const { lang } = useAppLanguage();
+  const facebookUrl = FACEBOOK_URLS[lang] ?? FACEBOOK_URLS.ru;
   return (
     <>
       <footer className="border-t border-border mt-24">
@@ -67,6 +69,7 @@ export function Footer() {
               href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackToSheet({ sheet: "TG", lang })}
               className="text-muted transition-colors duration-300 hover:text-[#0088cc]"
               aria-label="Telegram"
             >
@@ -82,7 +85,7 @@ export function Footer() {
               <IconInstagram />
             </a>
             <a
-              href={FACEBOOK_URL}
+              href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted transition-colors duration-300 hover:text-[#4267B2]"
