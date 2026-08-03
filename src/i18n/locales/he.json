@@ -63,6 +63,7 @@
     "form_submit": "שלח הודעה",
     "form_sending": "שולח...",
     "form_success": "הפנייה נשלחה! המדריך כבר יורד למכשיר שלך, ווואטסאפ ייפתח בכרטיסייה חדשה — פשוט לחץ על 'שלח'.",
+    "form_success_title": "הבקשה נשלחה",
     "form_error": "אירעה שגיאה. אנא נסה שוב.",
     "form_required": "נא למלא שם ומספר טלפון.",
     "whatsapp_prefill_with_message": "שלום! קוראים לי {{name}}, השארתי פנייה באתר.\n\n{{message}}",
