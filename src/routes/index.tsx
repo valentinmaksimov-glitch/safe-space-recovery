@@ -208,6 +208,17 @@ function Home() {
     applyDocumentLang(i18nHook.resolvedLanguage ?? i18nHook.language ?? "ru");
   }, [i18nHook.resolvedLanguage, i18nHook.language]);
 
+  // Arriving from /blog with a hash (#about, #how, #contact): scroll smoothly
+  // to the section once the page has mounted.
+  useEffect(() => {
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-paper text-ink min-h-screen">
       <Navbar />
