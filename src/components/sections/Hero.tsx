@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
+import { trackToSheet } from "@/lib/track";
 
 const TELEGRAM_URL = "https://t.me/V_m_help";
 
 
 export function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.resolvedLanguage ?? i18n.language ?? "ru";
   return (
     <section
       id="hero"
@@ -37,6 +39,7 @@ export function Hero() {
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackToSheet({ sheet: "TG", lang })}
             className="cta-lift inline-flex items-center justify-center gap-3 text-xs tracking-[0.18em] uppercase text-ink border border-ink px-6 py-4 whitespace-nowrap hover:bg-ink hover:text-paper min-h-[48px]"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
