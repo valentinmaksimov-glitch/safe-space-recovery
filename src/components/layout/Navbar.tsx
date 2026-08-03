@@ -111,13 +111,15 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-paper">
           <nav className="px-6 py-8 flex flex-col gap-6">
             {SECTIONS.map((s) => (
-              <button
+              <Link
                 key={s.id}
-                onClick={() => scrollTo(s.id)}
+                to="/"
+                hash={s.id}
+                onClick={(e) => handleSectionClick(e, s.id)}
                 className="text-start text-sm tracking-widest uppercase text-muted hover:text-ink transition-all duration-500"
               >
                 {t(s.key)}
-              </button>
+              </Link>
             ))}
             <Link
               to="/blog"
