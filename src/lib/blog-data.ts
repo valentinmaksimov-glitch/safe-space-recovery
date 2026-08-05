@@ -65,7 +65,7 @@ export const ARTICLES: Article[] = [
       "העיקר להתחיל, והצעד הראשון הוא פשוט לשים לב.",
     ],
   },
-
+  {
     slug: "olimpiada-stradaniy",
     lang: "ru",
     title: "Олимпиада страданий: почему мы запрещаем себе чувствовать боль",
