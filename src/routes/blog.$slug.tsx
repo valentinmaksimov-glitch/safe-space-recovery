@@ -79,7 +79,7 @@ function ArticlePage() {
             to="/blog"
             className="link-underline mt-12 inline-flex items-center min-h-[44px] text-xs tracking-widest uppercase text-ink hover:text-accent transition-colors duration-300"
           >
-            {isHebrew ? "← כל המאמרים" : "← Все статьи"}
+            {isHebrew ? "← כל המאמרים" : "← В блог"}
             <span className="sr-only">{t("blog.heading")}</span>
           </Link>
         </article>
