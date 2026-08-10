@@ -27,6 +27,9 @@ export function About() {
               src="/valentin.jpg"
               alt="Валентин Максимов — специалист по работе с зависимостями, Израиль"
               loading="lazy"
+              decoding="async"
+              width={512}
+              height={512}
               className="w-full h-full object-cover object-top"
             />
           </div>
