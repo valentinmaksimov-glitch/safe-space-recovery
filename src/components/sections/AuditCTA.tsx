@@ -17,7 +17,7 @@ export function AuditCTA() {
             href={t("audit.tally_url")}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-lift inline-flex items-center justify-center border border-paper text-paper px-10 py-4 text-xs tracking-[0.18em] uppercase font-normal hover:bg-paper hover:text-ink min-h-[48px]"
+            className="cta-lift inline-flex items-center justify-center border border-paper rounded-md text-paper px-10 py-4 text-xs tracking-[0.18em] uppercase font-normal hover:bg-paper hover:text-ink min-h-[48px]"
           >
             {t("audit.button")}
           </a>

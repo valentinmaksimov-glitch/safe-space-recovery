@@ -18,7 +18,7 @@ export function Partners() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="cta-lift mt-8 inline-flex items-center justify-center min-h-[48px] px-8 py-3 border border-ink text-ink text-xs tracking-widest uppercase hover:bg-ink hover:text-paper transition-colors duration-300"
+          className="cta-lift mt-8 inline-flex items-center justify-center min-h-[48px] px-8 py-4 border border-ink rounded-md text-ink text-xs tracking-widest uppercase hover:bg-ink hover:text-paper transition-colors duration-300"
         >
           {t("partners.cta")}
         </a>
