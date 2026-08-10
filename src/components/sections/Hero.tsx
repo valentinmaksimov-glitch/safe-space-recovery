@@ -13,15 +13,19 @@ export function Hero() {
       className="min-h-screen flex items-center justify-center bg-paper px-5 sm:px-6 pt-24 pb-16"
     >
       <div className="max-w-3xl text-center">
-        <h1 className="text-3xl md:text-4xl font-light tracking-wide text-ink leading-tight">
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-wide text-ink leading-tight">
           {t("hero.title")}
         </h1>
-        <p className="text-xl md:text-2xl text-ink font-light tracking-wide max-w-2xl mx-auto mt-6">
+        <p className="text-xl md:text-2xl text-ink font-medium tracking-wide max-w-2xl mx-auto mt-6">
           {t("hero.subtitle")}
         </p>
         <p className="text-base md:text-lg text-muted font-light leading-relaxed max-w-2xl mx-auto mt-4">
           {t("hero.subtitle_extended")}
         </p>
+        <p className="inline-block mt-6 text-xs md:text-sm text-muted font-light leading-relaxed border border-border bg-surface rounded-lg px-4 py-2 max-w-xl">
+          {t("hero.credentials")}
+        </p>
+
         <span className="hairline my-10" />
 
         {/* Button hierarchy: primary → secondary */}
