@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Target, RefreshCw, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { submitContactForm } from "../../lib/api/contact-form";
@@ -19,6 +20,7 @@ type Status = "idle" | "sending" | "success" | "error" | "required";
 export function HowIWork() {
   const { t, i18n } = useTranslation();
   const steps = t("how.steps", { returnObjects: true }) as Step[];
+  const stepIcons = [Target, RefreshCw, ShieldCheck];
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -73,7 +75,7 @@ export function HowIWork() {
   }
 
   return (
-    <section id="how" className="py-24 md:py-28 px-5 sm:px-6 border-t border-border">
+    <section id="how" className="py-24 md:py-28 px-5 sm:px-6 border-t border-border bg-surface">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-2xl md:text-3xl font-light tracking-wide text-ink mb-5 text-center">
           {t("how.heading")}
@@ -82,11 +84,16 @@ export function HowIWork() {
           {t("how.intro")}
         </p>
         <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-          {steps.map((s, i) => (
-            <div key={i} className="card-lift text-start p-6 md:p-7 rounded-sm">
-              <p className="text-xs tracking-[0.3em] text-accent mb-3">
-                {String(i + 1).padStart(2, "0")}
-              </p>
+          {steps.map((s, i) => {
+            const Icon = stepIcons[i % stepIcons.length];
+            return (
+            <div key={i} className="card-lift text-start p-6 md:p-7 rounded-lg">
+              <div className="flex items-center gap-3 mb-3">
+                <Icon className="w-5 h-5 text-accent" strokeWidth={1.25} aria-hidden="true" />
+                <p className="text-xs tracking-[0.3em] text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+              </div>
               <h3 className="text-xl font-light tracking-wide text-ink mb-2">
                 {s.title}
               </h3>
@@ -94,7 +101,8 @@ export function HowIWork() {
                 {s.desc}
               </p>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div id="booking" className="mt-24 pt-16 border-t border-border">
@@ -116,7 +124,7 @@ export function HowIWork() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 bg-transparent border border-border rounded-sm text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+                  className="w-full px-4 py-3 bg-transparent border border-border rounded-md text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -129,7 +137,7 @@ export function HowIWork() {
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-4 py-3 bg-transparent border border-border rounded-sm text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+                  className="w-full px-4 py-3 bg-transparent border border-border rounded-md text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -142,14 +150,14 @@ export function HowIWork() {
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-4 py-3 bg-transparent border border-border rounded-sm text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-transparent border border-border rounded-md text-ink placeholder:text-muted focus:outline-none focus:border-accent transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="cta-lift block w-full bg-accent text-paper py-4 text-sm tracking-[0.18em] uppercase font-normal rounded-sm hover:bg-accent-hover min-h-[48px] text-center disabled:opacity-60"
+                className="cta-lift block w-full bg-accent text-paper py-4 text-sm tracking-[0.18em] uppercase font-normal rounded-md hover:bg-accent-hover min-h-[48px] text-center disabled:opacity-60"
               >
                 {status === "sending" ? t("how.form_sending") : t("how.form_submit")}
               </button>
