@@ -93,7 +93,6 @@ export function Hero() {
             {t("hero.credentials")}
           </div>
         </div>
-
       </div>
     </section>
   );
