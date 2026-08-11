@@ -45,8 +45,7 @@ export function Hero() {
               {t("hero.cta_primary")}
             </a>
 
-            
-              href={TELEGRAM_URL}
+                          href={TELEGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackToSheet({ sheet: "TG", lang })}
