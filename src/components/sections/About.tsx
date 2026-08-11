@@ -21,7 +21,7 @@ export function About() {
           
           <span className="block w-16 h-px bg-ink/20 my-8" />
           
-          {/* Основной текст био (уверенный шрифт text-ink, без тусклого muted) */}
+          {/* Основной текст био */}
           <p className="text-base md:text-lg text-ink/90 font-medium leading-relaxed whitespace-pre-line">
             {t("about.bio")}
           </p>
