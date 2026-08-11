@@ -6,7 +6,6 @@ export function About() {
 
   return (
     <section id="about" className="py-24 md:py-28 px-5 sm:px-8 border-t border-border bg-paper">
-      {/* Увеличили максимальную ширину с max-w-4xl до max-w-5xl для более широкого отображения */}
       <div className="mx-auto max-w-5xl">
         <div dir={isRtl ? "rtl" : undefined} className={isRtl ? "text-right" : "text-left"}>
           
@@ -22,17 +21,21 @@ export function About() {
           
           <span className="block w-16 h-px bg-ink/20 my-8" />
           
-          {/* Основной текст био с выделением ключевых слов */}
-          <p className="text-base md:text-lg text-ink/90 font-medium leading-relaxed whitespace-pre-line">
-            {t("about.bio")}
-          </p>
+          {/* Биография с правильными отступами между абзацами */}
+          <div className="space-y-6 text-base md:text-lg text-ink/90 font-medium leading-relaxed">
+            {t("about.bio").split('\n').map((paragraph, index) => (
+              paragraph.trim() ? (
+                <p key={index}>{paragraph}</p>
+              ) : null
+            ))}
+          </div>
           
-          {/* Список регалий (убран класс marker-dot, чтобы избежать двойных точек) */}
-          <ul className="mt-8 space-y-3 text-base text-ink/90 font-medium leading-relaxed">
+          {/* Список регалий с идеально выровненными точками */}
+          <ul className="mt-10 space-y-4 text-base text-ink/90 font-medium leading-relaxed">
             {(t("about.credentials_list", { returnObjects: true }) as string[]).map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span className="text-accent mt-1.5 font-bold">•</span>
-                <span>{item}</span>
+              <li key={item} className="flex items-start gap-3.5">
+                <span className="text-accent text-lg leading-none select-none">•</span>
+                <span className="flex-1">{item}</span>
               </li>
             ))}
           </ul>

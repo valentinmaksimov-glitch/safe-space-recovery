@@ -45,19 +45,22 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Правая колонка (Ровно одно прямоугольное фото) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-sm border border-border bg-paper">
+          {/* Правая колонка (Прямоугольное фото + заголовок под ним) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
+            <div className="w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-md border border-border bg-paper">
               <img
                 src="/valentin.jpg"
                 alt="Валентин Максимов"
                 loading="eager"
                 decoding="async"
                 width={600}
-                height={600}
+                height={750}
                 className="w-full h-full object-cover object-center"
               />
             </div>
+            <p className="mt-4 text-sm md:text-base font-medium text-ink/70 tracking-wide text-center lg:text-right">
+              Валентин Максимов
+            </p>
           </div>
 
         </div>
