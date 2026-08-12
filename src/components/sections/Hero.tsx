@@ -45,9 +45,9 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Правая колонка (Прямоугольное фото + заголовок под ним) */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
-            <div className="w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-md border border-border bg-paper">
+          {/* Правая колонка (Прямоугольное фото + правильное описание) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full">
+            <div className="w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-sm border border-border bg-paper">
               <img
                 src="/valentin.jpg"
                 alt="Валентин Максимов"
@@ -58,9 +58,15 @@ export function Hero() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <p className="mt-4 text-sm md:text-base font-medium text-ink/70 tracking-wide text-center lg:text-right">
-              Валентин Максимов
-            </p>
+            {/* Описание под фото */}
+            <div className="mt-5 text-center lg:text-left w-full max-w-md pl-1">
+              <p className="text-xl md:text-2xl font-semibold text-ink tracking-wide">
+                Валентин Максимов
+              </p>
+              <p className="text-sm md:text-base text-ink/70 mt-2 leading-relaxed font-medium">
+                Специалист по преодолению<br />деструктивного поведения и зависимостей
+              </p>
+            </div>
           </div>
 
         </div>

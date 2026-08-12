@@ -21,21 +21,27 @@ export function About() {
           
           <span className="block w-16 h-px bg-ink/20 my-8" />
           
-          {/* Биография с правильными отступами между абзацами */}
-          <div className="space-y-6 text-base md:text-lg text-ink/90 font-medium leading-relaxed">
-            {t("about.bio").split('\n').map((paragraph, index) => (
-              paragraph.trim() ? (
-                <p key={index}>{paragraph}</p>
-              ) : null
-            ))}
+          {/* Биография: разбита на смысловые абзацы с большими отступами и выделениями */}
+          <div className="space-y-6 text-base md:text-lg text-ink/90 font-medium leading-relaxed max-w-4xl">
+            <p>
+              Меня зовут Валентин Максимов. Я <span className="font-bold text-accent">помогаю</span> людям, которые чувствуют, что застряли в бесконечном круге неудач, потери контроля над жизнью или разрушают свои отношения и карьеру.
+            </p>
+            <p>
+              Моя задача — помочь вам найти корень проблемы и вернуть контроль над вашей жизнью.
+            </p>
+            <p>
+              Я также выступаю в роли ведущего и организатора групп поддержки, где участники находят силу в обмене опытом и взаимной помощи.
+            </p>
           </div>
           
           {/* Список регалий с идеально выровненными точками */}
-          <ul className="mt-10 space-y-4 text-base text-ink/90 font-medium leading-relaxed">
-            {(t("about.credentials_list", { returnObjects: true }) as string[]).map((item) => (
-              <li key={item} className="flex items-start gap-3.5">
-                <span className="text-accent text-lg leading-none select-none">•</span>
-                <span className="flex-1">{item}</span>
+          <ul className="mt-10 space-y-5 text-base md:text-lg text-ink/90 font-medium leading-relaxed">
+            {(t("about.credentials_list", { returnObjects: true }) as string[]).map((item, index) => (
+              <li key={index} className="relative pl-6">
+                <span className="absolute left-0 top-[0.1em] text-accent font-bold text-xl leading-none select-none">
+                  •
+                </span>
+                <span>{item}</span>
               </li>
             ))}
           </ul>
