@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Claude-inspired Design — Valentin Maksimov
- * Calming soft blue accent, text deep graphite.
+ * Quiet Luxury — Valentin Maksimov
+ * Warm off-white paper, deep graphite ink, muted slate navy accent.
+ * Single font across the entire website: Inter.
  */
 
 @theme inline {
@@ -34,25 +35,19 @@
   --color-surface: var(--surface);
   --color-card: var(--paper);
   --color-card-foreground: var(--ink);
-  --color-popover: var(--paper);
-  --color-popover-foreground: var(--ink);
-  --color-destructive: oklch(0.55 0.20 27);
-  --color-destructive-foreground: var(--paper);
 
-  /* Подключаем шрифты */
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 :root {
-  --paper: #f8fafc;
-  --surface: #f1f5f9;
-  --ink: #1e293b; /* графитовый цвет */
-  --muted: #6b7280;
-  --muted-foreground: #6b7280;
-  --border: #e2e8f0;
-  --accent: #0284c7; /* успокаивающий синий */
-  --accent-hover: #0369a1;
+  --paper: #F7F5F1;
+  --surface: #F1EEE8;
+  --ink: #1A1D20;
+  --muted: #6B7280;
+  --muted-foreground: #6B7280;
+  --border: #E5E7EB;
+  --accent: #1E3A5F;        /* Приглушенный тёмно-синий / near-black */
+  --accent-hover: #12253E;
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -76,12 +71,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Все заголовки получают экспертный шрифт Lora */
+  /* Единственный шрифт Inter для всех заголовков */
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
 }
 
@@ -98,29 +93,6 @@
   }
 }
 
-@utility link-underline {
-  position: relative;
-  display: inline-block;
-}
-@utility link-underline {
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -2px;
-    height: 1px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: right center;
-    transition: transform 350ms ease;
-  }
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left center;
-  }
-}
-
 @utility cta-lift {
   transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease, color 300ms ease;
   will-change: transform;
@@ -128,54 +100,9 @@
 @utility cta-lift {
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px -10px rgba(2, 132, 199, 0.35);
+    box-shadow: 0 8px 20px -8px rgba(30, 58, 95, 0.3);
   }
   &:active {
     transform: translateY(0);
-  }
-}
-
-@utility marker-dot {
-  list-style: none;
-  padding-inline-start: 0;
-}
-@utility marker-dot {
-  & > li {
-    position: relative;
-    padding-inline-start: 1.25rem;
-  }
-  & > li::before {
-    content: "";
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0.7em;
-    width: 6px;
-    height: 6px;
-    border-radius: 9999px;
-    background-color: var(--accent);
-  }
-}
-
-@utility btn-quiet {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--accent);
-  color: var(--paper);
-  padding: 1rem 2rem;
-  font-size: 0.8125rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 400;
-  border-radius: var(--radius-md);
-  transition: all 500ms ease-in-out;
-  cursor: pointer;
-  border: none;
-  min-height: 44px;
-  min-width: 44px;
-}
-@utility btn-quiet {
-  &:hover {
-    background-color: var(--accent-hover);
   }
 }
