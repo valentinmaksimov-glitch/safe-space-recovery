@@ -6,14 +6,18 @@ const TELEGRAM_URL = "https://t.me/V_m_help";
 export function Hero() {
   const { t, i18n } = useTranslation();
   const lang = i18n.resolvedLanguage ?? i18n.language ?? "ru";
+  const isRtl = i18n.dir() === "rtl";
 
   return (
-    <section className="pt-32 pb-20 md:pt-40 md:pb-28 px-5 sm:px-8 bg-paper">
+    <section 
+      dir={isRtl ? "rtl" : "ltr"} 
+      className="pt-32 pb-20 md:pt-40 md:pb-28 px-5 sm:px-8 bg-paper"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Левая колонка */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Левая колонка — Текст и Кнопки */}
+          <div className={`lg:col-span-7 space-y-8 ${isRtl ? "text-right" : "text-left"}`}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-ink leading-[1.18]">
               {t("hero.title")}
             </h1>
@@ -22,7 +26,7 @@ export function Hero() {
               {t("hero.subtitle")}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className={`flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 ${isRtl ? "sm:flex-row-reverse justify-end" : ""}`}>
               <a
                 href="#audit"
                 className="cta-lift inline-flex items-center justify-center bg-accent text-paper text-xs md:text-sm tracking-[0.15em] uppercase font-semibold px-8 py-4 rounded-md transition-colors min-h-[48px]"
@@ -45,7 +49,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Правая колонка */}
+          {/* Правая колонка — Фотография и подпись */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full">
             <div className="w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden shadow-sm border border-border bg-paper">
               <img
@@ -58,12 +62,13 @@ export function Hero() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <div className="mt-5 text-center lg:text-right w-full max-w-md">
+            {/* ВЫРАВНИВАНИЕ ТЕКСТА ПОД ФОТО: строго по языку */}
+            <div className={`mt-5 w-full max-w-md ${isRtl ? "text-right" : "text-left"}`}>
               <p className="text-xl md:text-2xl font-semibold text-ink tracking-tight">
                 {t("about.name")}
               </p>
               <p className="text-sm md:text-base text-muted mt-1.5 leading-relaxed font-normal">
-                {t("hero.role_description", "Специалист по преодолению деструктивного поведения и зависимостей")}
+                {t("hero.role_description")}
               </p>
             </div>
           </div>
