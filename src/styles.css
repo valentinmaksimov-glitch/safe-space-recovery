@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -5,9 +6,8 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Quiet Luxury — Valentin Maksimov
- * Warm off-white paper, deep graphite ink, slate accent.
- * No gradients, no shadows, no large radii.
+ * Claude-inspired Design — Valentin Maksimov
+ * Calming soft blue accent, text deep graphite.
  */
 
 @theme inline {
@@ -40,26 +40,23 @@
   --color-destructive: oklch(0.55 0.20 27);
   --color-destructive-foreground: var(--paper);
 
-  --font-sans: "Manrope", "Noto Sans Hebrew", system-ui, sans-serif;
-  --font-hebrew: "Noto Sans Hebrew", "Manrope", sans-serif;
+  /* Подключаем шрифты */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
 }
 
 :root {
-  --paper: #F7F5F1;
-  --surface: #F1EEE8;
-  --ink: #1A1D20;
-  --muted: #6B7280;
-  --muted-foreground: #6B7280;
-  --border: #E5E7EB;
-  --accent: #1E3A5F;
-  --accent-hover: #2C3E50;
+  --paper: #f8fafc;
+  --surface: #f1f5f9;
+  --ink: #1e293b; /* графитовый цвет */
+  --muted: #6b7280;
+  --muted-foreground: #6b7280;
+  --border: #e2e8f0;
+  --accent: #0284c7; /* успокаивающий синий */
+  --accent-hover: #0369a1;
 
   --background: var(--paper);
   --foreground: var(--ink);
-}
-
-html[dir="rtl"] {
-  font-family: var(--font-hebrew);
 }
 
 @layer base {
@@ -76,29 +73,16 @@ html[dir="rtl"] {
     color: var(--color-ink);
     font-family: var(--font-sans);
     font-weight: 400;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  p {
     line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
 
+  /* Все заголовки получают экспертный шрифт Lora */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-family: var(--font-serif);
+    font-weight: 500;
     letter-spacing: 0.01em;
     line-height: 1.2;
-  }
-
-  ::selection {
-    background-color: var(--accent);
-    color: var(--paper);
-  }
-
-  /* Touch target minimum on interactive elements */
-  a, button {
-    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -145,7 +129,7 @@ html[dir="rtl"] {
 @utility cta-lift {
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px -10px rgba(30, 58, 95, 0.35);
+    box-shadow: 0 10px 24px -10px rgba(2, 132, 199, 0.35);
   }
   &:active {
     transform: translateY(0);
@@ -171,14 +155,6 @@ html[dir="rtl"] {
     border-radius: 9999px;
     background-color: var(--accent);
   }
-}
-
-@utility hairline {
-  display: block;
-  width: 4rem;
-  height: 1px;
-  background-color: var(--muted);
-  margin-inline: auto;
 }
 
 @utility btn-quiet {

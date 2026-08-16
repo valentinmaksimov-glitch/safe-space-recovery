@@ -9,39 +9,35 @@ export function About() {
       <div className="mx-auto max-w-5xl">
         <div dir={isRtl ? "rtl" : undefined} className={isRtl ? "text-right" : "text-left"}>
           
-          {/* Заголовок секции */}
-          <h2 className="text-xs tracking-[0.3em] uppercase text-ink/70 mb-5 font-semibold">
+          {/* Маленький верхний заголовок секции */}
+          <h2 className="text-xs tracking-[0.3em] uppercase text-accent mb-5 font-semibold">
             {t("about.heading")}
           </h2>
           
-          {/* Имя */}
+          {/* Большое Имя */}
           <p className="text-3xl md:text-4xl font-semibold tracking-wide text-ink">
             {t("about.name")}
           </p>
           
-          <span className="block w-16 h-px bg-ink/20 my-8" />
+          <span className="block w-16 h-px bg-accent/30 my-8" />
           
-          {/* Биография: разбита на смысловые абзацы с большими отступами и выделениями */}
-          <div className="space-y-6 text-base md:text-lg text-ink/90 font-medium leading-relaxed max-w-4xl">
-            <p>
-              Меня зовут Валентин Максимов. Я <span className="font-bold text-accent">помогаю</span> людям, которые чувствуют, что застряли в бесконечном круге неудач, потери контроля над жизнью или разрушают свои отношения и карьеру.
-            </p>
-            <p>
-              Моя задача — помочь вам найти корень проблемы и вернуть контроль над вашей жизнью.
-            </p>
-            <p>
-              Я также выступаю в роли ведущего и организатора групп поддержки, где участники находят силу в обмене опытом и взаимной помощи.
-            </p>
+          {/* Автоматическое разбиение биографии на параграфы с большими отступами */}
+          <div className="space-y-6 text-base md:text-lg text-ink/90 font-normal leading-relaxed max-w-4xl">
+            {t("about.bio")
+              .split("\n\n")
+              .map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
           </div>
           
-          {/* Список регалий с идеально выровненными точками */}
-          <ul className="mt-10 space-y-5 text-base md:text-lg text-ink/90 font-medium leading-relaxed">
+          {/* Список регалий с идеально выровненными точками по первой строке */}
+          <ul className="mt-10 space-y-4 text-base md:text-lg text-ink/90 font-normal leading-relaxed">
             {(t("about.credentials_list", { returnObjects: true }) as string[]).map((item, index) => (
-              <li key={index} className="relative pl-6">
-                <span className="absolute left-0 top-[0.1em] text-accent font-bold text-xl leading-none select-none">
+              <li key={index} className="flex items-start gap-3.5">
+                <span className="text-accent font-bold text-xl leading-none select-none mt-1">
                   •
                 </span>
-                <span>{item}</span>
+                <span className="flex-1">{item}</span>
               </li>
             ))}
           </ul>
