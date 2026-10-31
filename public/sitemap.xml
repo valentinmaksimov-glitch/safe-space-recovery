@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://valentin-maksimov.com/</loc>
+    <loc>https://www.valentinm.co.il/</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://valentin-maksimov.com/" />
-    <xhtml:link rel="alternate" hreflang="he" href="https://valentin-maksimov.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://valentin-maksimov.com/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.valentinm.co.il/" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.valentinm.co.il/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.valentinm.co.il/" />
   </url>
   <url>
-    <loc>https://valentin-maksimov.com/privacy</loc>
+    <loc>https://www.valentinm.co.il/privacy</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

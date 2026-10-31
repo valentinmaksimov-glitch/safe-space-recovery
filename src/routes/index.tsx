@@ -14,7 +14,7 @@ import { Contact } from "@/components/sections/Contact";
 import { AuditCTA } from "@/components/sections/AuditCTA";
 import { Partners } from "@/components/sections/Partners";
 
-const SITE = "https://valentin-maksimov.com";
+const SITE = "https://www.valentinm.co.il";
 
 export const Route = createFileRoute("/")({
   head: () => ({

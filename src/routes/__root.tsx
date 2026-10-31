@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
@@ -37,7 +38,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -120,14 +121,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Person",
-          "@id": "https://valentin-maksimov.com/#person",
+          "@id": "https://www.valentinm.co.il/#person",
           "name": "Валентин Максимов",
           "alternateName": ["Valentin Maksimov", "ולנטין מקסימוב"],
           "jobTitle": "Addiction Counselor & Behavioral Patterns Specialist",
           "description":
             "Специалист по работе с химическими и поведенческими зависимостями. Интегративный подход: CBT, NLP, 12 шагов, майндфулнес.",
-          "url": "https://valentin-maksimov.com",
-          "image": "https://valentin-maksimov.com/valentin.jpg",
+          "url": "https://www.valentinm.co.il",
+          "image": "https://www.valentinm.co.il/valentin.jpg",
           "telephone": "+972-50-609-6289",
           "areaServed": { "@type": "Country", "name": "Israel" },
           "address": { "@type": "PostalAddress", "addressCountry": "IL" },

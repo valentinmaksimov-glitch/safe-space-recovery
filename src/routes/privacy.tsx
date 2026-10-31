@@ -12,7 +12,7 @@ export const Route = createFileRoute("/privacy")({
         content: "Политика обработки персональных данных на сайте консультанта Валентина Максимова.",
       },
     ],
-    links: [{ rel: "canonical", href: "https://valentin-maksimov.com/privacy" }],
+    links: [{ rel: "canonical", href: "https://www.valentinm.co.il/privacy" }],
   }),
   component: PrivacyPage,
 });
