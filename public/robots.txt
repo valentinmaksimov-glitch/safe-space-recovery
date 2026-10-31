@@ -20,4 +20,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://valentin-maksimov.com/sitemap.xml
+Sitemap: https://www.valentinm.co.il/sitemap.xml

@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { useAppLanguage } from "@/hooks/use-app-language";
 import { articleBySlug } from "@/lib/blog-data";
 
-const SITE = "https://valentin-maksimov.com";
+const SITE = "https://www.valentinm.co.il";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
