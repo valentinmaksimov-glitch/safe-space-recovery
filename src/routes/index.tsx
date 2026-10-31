@@ -97,7 +97,7 @@ export const Route = createFileRoute("/")({
               "url": `${SITE}/valentin.jpg`,
               "contentUrl": `${SITE}/valentin.jpg`,
               "width": 600,
-              "height": 600,
+              "height": 750,
               "caption": "Валентин Максимов",
             },
             {
