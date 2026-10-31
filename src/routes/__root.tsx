@@ -136,6 +136,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "sameAs": [
             "https://t.me/V_m_help",
             "https://wa.me/972506096289",
+            "https://www.instagram.com/valentin.mks/",
           ],
           "knowsAbout": [
             "addiction counseling",
