@@ -126,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "alternateName": ["Valentin Maksimov", "ולנטין מקסימוב"],
           "jobTitle": "Addiction Counselor & Behavioral Patterns Specialist",
           "description":
-            "Специалист по работе с химическими и поведенческими зависимостями. Интегративный подход: CBT, NLP, 12 шагов, майндфулнес.",
+            "Специалист по работе с химическими и поведенческими зависимостями. Работа с зависимостями: НЛП, 12 шагов, майндфулнес.",
           "url": "https://www.valentinm.co.il",
           "image": "https://www.valentinm.co.il/valentin.jpg",
           "telephone": "+972-50-609-6289",
@@ -142,7 +142,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "addiction counseling",
             "12-step programs",
             "behavioral pattern correction",
-            "CBT",
             "NLP",
             "Mindfulness",
             "crisis counseling",
