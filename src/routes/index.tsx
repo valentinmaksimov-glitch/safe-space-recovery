@@ -191,7 +191,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const { i18n: i18nHook } = useTranslation();
+  const { t, i18n: i18nHook } = useTranslation();
 
   // Upgrade to the visitor's stored language only after mount to avoid
   // hydration mismatches with the deterministic SSR default ("ru").
@@ -226,6 +226,13 @@ function Home() {
         <Hero />
         <Triggers />
         <AuditCTA />
+        <div className="py-12 px-5 sm:px-8 bg-paper">
+          <div className="mx-auto max-w-5xl" dir={i18nHook.dir()}>
+            <p className="text-start text-base md:text-lg text-ink/90 font-normal leading-relaxed max-w-4xl">
+              {t("relatives.paragraph")}
+            </p>
+          </div>
+        </div>
         <About />
         <HowIWork />
         <FAQ />
