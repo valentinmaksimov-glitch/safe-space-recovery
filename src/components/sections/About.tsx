@@ -42,6 +42,10 @@ export function About() {
             ))}
           </ul>
 
+          <p className="mt-6 text-base md:text-lg text-ink/90 font-normal leading-relaxed max-w-4xl">
+            {t("about.scope")}
+          </p>
+
         </div>
       </div>
     </section>
