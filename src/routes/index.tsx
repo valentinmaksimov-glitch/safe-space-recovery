@@ -226,13 +226,13 @@ function Home() {
         <Hero />
         <Triggers />
         <AuditCTA />
-        <div className="py-12 px-5 sm:px-8 bg-paper">
+        {t("relatives.paragraph") && <div className="py-12 px-5 sm:px-8 bg-paper">
           <div className="mx-auto max-w-5xl" dir={i18nHook.dir()}>
             <p className="text-start text-base md:text-lg text-ink/90 font-normal leading-relaxed max-w-4xl">
               {t("relatives.paragraph")}
             </p>
           </div>
-        </div>
+        </div>}
         <About />
         <HowIWork />
         <FAQ />
