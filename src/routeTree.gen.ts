@@ -10,13 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CloseOnesRouteImport } from './routes/close-ones'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as HeCloseOnesRouteImport } from './routes/he.close-ones'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CloseOnesRoute = CloseOnesRouteImport.update({
+  id: '/close-ones',
+  path: '/close-ones',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -34,38 +41,70 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HeCloseOnesRoute = HeCloseOnesRouteImport.update({
+  id: '/he/close-ones',
+  path: '/he/close-ones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/close-ones': typeof CloseOnesRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/he/close-ones': typeof HeCloseOnesRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/close-ones': typeof CloseOnesRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/he/close-ones': typeof HeCloseOnesRoute
   '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/close-ones': typeof CloseOnesRoute
   '/privacy': typeof PrivacyRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/he/close-ones': typeof HeCloseOnesRoute
   '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy' | '/blog/$slug' | '/blog/'
+  fullPaths:
+    | '/'
+    | '/close-ones'
+    | '/privacy'
+    | '/blog/$slug'
+    | '/he/close-ones'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/blog/$slug' | '/blog'
-  id: '__root__' | '/' | '/privacy' | '/blog/$slug' | '/blog/'
+  to:
+    | '/'
+    | '/close-ones'
+    | '/privacy'
+    | '/blog/$slug'
+    | '/he/close-ones'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/close-ones'
+    | '/privacy'
+    | '/blog/$slug'
+    | '/he/close-ones'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CloseOnesRoute: typeof CloseOnesRoute
   PrivacyRoute: typeof PrivacyRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  HeCloseOnesRoute: typeof HeCloseOnesRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
@@ -76,6 +115,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/close-ones': {
+      id: '/close-ones'
+      path: '/close-ones'
+      fullPath: '/close-ones'
+      preLoaderRoute: typeof CloseOnesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -99,13 +145,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/he/close-ones': {
+      id: '/he/close-ones'
+      path: '/he/close-ones'
+      fullPath: '/he/close-ones'
+      preLoaderRoute: typeof HeCloseOnesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CloseOnesRoute: CloseOnesRoute,
   PrivacyRoute: PrivacyRoute,
   BlogSlugRoute: BlogSlugRoute,
+  HeCloseOnesRoute: HeCloseOnesRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport

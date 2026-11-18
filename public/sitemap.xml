@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.valentinm.co.il/</loc>
     <lastmod>2026-07-13</lastmod>
@@ -36,5 +36,17 @@
     <lastmod>2026-07-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.valentinm.co.il/close-ones</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.valentinm.co.il/close-ones"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.valentinm.co.il/he/close-ones"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.valentinm.co.il/close-ones"/>
+  </url>
+  <url>
+    <loc>https://www.valentinm.co.il/he/close-ones</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.valentinm.co.il/close-ones"/>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.valentinm.co.il/he/close-ones"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.valentinm.co.il/close-ones"/>
   </url>
 </urlset>
