@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import ru from "@/i18n/locales/ru.json";
 import he from "@/i18n/locales/he.json";
 import { trackToSheet } from "@/lib/track";
+import { getSourceCode, getSourceDetails } from "@/lib/source";
 
 type Lang = "ru" | "he";
 const TEXTS = { ru: ru.closeOnes, he: he.closeOnes };
@@ -28,9 +29,23 @@ const BTN_BASE =
   "cta-lift inline-flex items-center justify-center gap-3 w-full sm:w-auto min-h-[48px] px-8 py-4 rounded-md text-sm font-semibold tracking-[0.15em] uppercase transition-colors " +
   FOCUS;
 
-function Buttons({ lang, idSuffix, inverted }: { lang: Lang; idSuffix: string; inverted?: boolean }) {
+/** Logs the channel used (same "TG" tab, marked WA / TG) with the traffic source. */
+const logChannel = (channel: "WA" | "TG", lang: Lang) =>
+  trackToSheet({ sheet: "TG", lang, worries: `${channel} | ${getSourceDetails() || "direct"}` });
+
+function Buttons({
+  lang,
+  idSuffix,
+  inverted,
+  waSuffix = "",
+}: {
+  lang: Lang;
+  idSuffix: string;
+  inverted?: boolean;
+  waSuffix?: string;
+}) {
   const t = TEXTS[lang];
-  const wa = `${WHATSAPP_URL}?text=${encodeURIComponent(t.whatsappMessage)}`;
+  const wa = `${WHATSAPP_URL}?text=${encodeURIComponent(t.whatsappMessage + waSuffix)}`;
   return (
     <div className="flex flex-col sm:flex-row gap-3">
       <a
@@ -38,6 +53,7 @@ function Buttons({ lang, idSuffix, inverted }: { lang: Lang; idSuffix: string; i
         href={wa}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => logChannel("WA", lang)}
         className={BTN_BASE + (inverted ? " bg-paper text-ink hover:bg-surface" : " bg-accent text-paper hover:bg-accent-hover")}
       >
         <WhatsAppIcon />
@@ -48,7 +64,7 @@ function Buttons({ lang, idSuffix, inverted }: { lang: Lang; idSuffix: string; i
         href={TELEGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => trackToSheet({ sheet: "TG", lang })}
+        onClick={() => logChannel("TG", lang)}
         className={
           BTN_BASE +
           " bg-transparent border " +
@@ -66,6 +82,12 @@ export function CloseOnesPage({ lang }: { lang: Lang }) {
   const t = TEXTS[lang];
   const heroBtns = useRef<HTMLDivElement>(null);
   const [showSticky, setShowSticky] = useState(false);
+  const [waSuffix, setWaSuffix] = useState("");
+
+  useEffect(() => {
+    const code = getSourceCode();
+    if (code) setWaSuffix(` (${code})`);
+  }, []);
 
   useEffect(() => {
     const el = heroBtns.current;
@@ -110,7 +132,7 @@ export function CloseOnesPage({ lang }: { lang: Lang }) {
             <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-[1.18] text-ink">{t.h1}</h1>
             <p className="mt-6 text-base sm:text-lg text-ink/80 leading-relaxed">{t.subhead}</p>
             <div ref={heroBtns} className="mt-8">
-              <Buttons lang={lang} idSuffix="top" />
+              <Buttons lang={lang} idSuffix="top" waSuffix={waSuffix} />
             </div>
           </div>
         </section>
@@ -160,7 +182,7 @@ export function CloseOnesPage({ lang }: { lang: Lang }) {
             <h2 className="text-2xl md:text-3xl font-semibold text-paper">{t.meetingHeading}</h2>
             <p className="mt-4 text-base sm:text-lg text-paper/90 leading-relaxed">{t.meetingLine}</p>
             <div className="mt-8">
-              <Buttons lang={lang} idSuffix="meeting" inverted />
+              <Buttons lang={lang} idSuffix="meeting" inverted waSuffix={waSuffix} />
             </div>
           </div>
         </section>
@@ -203,9 +225,10 @@ export function CloseOnesPage({ lang }: { lang: Lang }) {
       >
         <a
           id="whatsapp-cta-sticky"
-          href={`${WHATSAPP_URL}?text=${encodeURIComponent(t.whatsappMessage)}`}
+          href={`${WHATSAPP_URL}?text=${encodeURIComponent(t.whatsappMessage + waSuffix)}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => logChannel("WA", lang)}
           tabIndex={showSticky ? 0 : -1}
           className={"w-1/2 inline-flex items-center justify-center gap-2 min-h-[48px] rounded-md bg-accent text-paper hover:bg-accent-hover text-sm font-semibold " + FOCUS}
         >
@@ -218,7 +241,7 @@ export function CloseOnesPage({ lang }: { lang: Lang }) {
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={showSticky ? 0 : -1}
-          onClick={() => trackToSheet({ sheet: "TG", lang })}
+          onClick={() => logChannel("TG", lang)}
           className={"w-1/2 inline-flex items-center justify-center gap-2 min-h-[48px] rounded-md border border-border text-ink hover:border-ink text-sm font-semibold " + FOCUS}
         >
           <TelegramIcon />
